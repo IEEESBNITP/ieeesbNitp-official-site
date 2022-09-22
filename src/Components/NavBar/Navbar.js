@@ -4,7 +4,7 @@ function Navbar() {
     return (
         <>
             {/* <!-- navbar goes here --> */}
-            <nav className="bg-gray-100">
+            <nav className="bg-[#030205]">
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="flex justify-between">
 
