@@ -6,10 +6,13 @@ function Home() {
             <div className=''>
 
                 <div className='grid h-screen place-items-center'>
-                    <img src="settings.png" className='w-96' alt="" />
+                    <video autoPlay loop muted>
+                        <source src="Computer.mp4"  type="video/mp4" />
+                    </video>
+                    <h1 className='text-6xl text-gray-300 font-serif font-medium absolute top-1/2'>IEEE SB NIT PATNA</h1>
                 </div>
             </div>
-            <div className='flex'>
+            <div className='flex py-14'>
                 <div>
                     <img src="illustration-stay-productive.png" className='w-3/4 px-14 py-10 md:ml-10' alt="" />
                 </div>
