@@ -1,6 +1,31 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from '../../Firebase'
+import  { useNavigate } from 'react-router-dom'
 function Login() {
+   const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const handleLogin = () => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                console.log(user); 
+                localStorage.setItem('ieee-auth',JSON.stringify(user))
+                if(user){
+                    navigate('/dashboard')
+                }
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                console.log(errorCode);
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+    }
+
     return (
         <>
             <div className="min-h-screen py-6 flex bg-[#181F2A] flex-col justify-center sm:py-12">
@@ -16,15 +41,15 @@ function Login() {
                             <div className="divide-y divide-gray-200">
                                 <div className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
                                     <div className="relative">
-                                        <input autoComplete="off" id="email" name="email" type="text" className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
+                                        <input autoComplete="off" id="email" name="email" onChange={e => setEmail(e.target.value)} type="text" className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Email address" />
                                         <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
                                     </div>
                                     <div className="relative">
-                                        <input autoComplete="off" id="password" name="password" type="password" className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
+                                        <input autoComplete="off" id="password" name="password" type="password" onChange={e => setPassword(e.target.value)} className="peer placeholder-transparent h-10 w-full border-b-2 border-gray-300 text-gray-900 focus:outline-none focus:borer-rose-600" placeholder="Password" />
                                         <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                                     </div>
                                     <div className="relative">
-                                        <button className="bg-blue-500 text-white rounded-md px-2 py-1">Submit</button>
+                                        <button className="bg-blue-500 text-white rounded-md px-2 py-1" onClick={handleLogin}>Submit</button>
                                     </div>
                                 </div>
                             </div>
