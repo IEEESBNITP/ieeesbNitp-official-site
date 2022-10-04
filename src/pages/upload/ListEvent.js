@@ -36,7 +36,7 @@ function ListEvent() {
                 console.log(error);
             }
         } else {
-            alert("lawde Data sahi daal");
+            alert("Enter Valid Inputs");
         }
     }
 
