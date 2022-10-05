@@ -5,11 +5,12 @@ import { addDoc, collection, } from "firebase/firestore";
 function UploadCertificates() {
     const [loader, setLoader] = useState(false);
     const [roll, setRoll] = useState('');
+    const [date, setDate] = useState("");
     const [eventName, setEventName] = useState('');
     const [file, setFile] = useState();
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (roll !== "" && eventName !== "" && file !== "") {
+        if (roll !== "" && eventName !== "" && file !== "" && date !=="") {
             //reference to events folder 
             const imgRef = ref(storage, `certificates/${new Date().getTime()} - ${file.name}`)
             try {
@@ -20,6 +21,7 @@ function UploadCertificates() {
                 setFile();
                 await addDoc(collection(db, 'certificates'), {
                     roll: roll,
+                    date: date,
                     event: eventName,
                     imgPath: file ? url : null,
                     forDeletePath: file ? snap.ref.fullPath : null,
@@ -49,18 +51,24 @@ function UploadCertificates() {
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
                                         <label htmlFor="name" className="leading-7 text-sm text-gray-600">Roll Number</label>
-                                        <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={roll} onChange={e=>setRoll(e.target.value)} placeholder="Roll Number"/>
+                                        <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={roll} onChange={e => setRoll(e.target.value)} placeholder="Roll Number" />
                                     </div>
                                 </div>
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
                                         <label htmlFor="email" className="leading-7 text-sm text-gray-600">Event Name</label>
-                                        <input type="text" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={eventName} onChange={e=>setEventName(e.target.value)} placeholder="Event Name" />
+                                        <input type="text" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" />
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
                                     <div className="relative">
-                                        <label htmlFor="message" className="leading-7 text-sm text-gray-600">Upload Image</label>
+                                        <label htmlFor="date" className="leading-7 text-sm text-gray-600">Upload Image</label>
+                                        <input type="date" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={date} onChange={e => setDate(e.target.value)} />
+                                    </div>
+                                </div>
+                                <div className="p-2 w-full">
+                                    <div className="relative">
+                                        <label htmlFor="file" className="leading-7 text-sm text-gray-600">Upload Image</label>
                                         <input type="file" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={e => setFile(e.target.files[0])} accept="image/*" />
                                     </div>
                                 </div>
