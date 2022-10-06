@@ -10,6 +10,10 @@ import Committee from "./pages/committee/Committee";
 import Gallery from "./pages/Gallery/Gallery";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Login from "./pages/upload/Login";
+import DashBoard from "./pages/upload/DashBoard";
+import ListEvent from "./pages/upload/ListEvent";
+import UploadCertificates from "./pages/upload/UploadCertificates";
+import DownloadCertificates from "./pages/certificates/DownloadCertificates";
 function App() {
   return (
     <>
@@ -18,14 +22,20 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/committee" element={<Committee/>} />
+        <Route path="/committee" element={<Committee />} />
         <Route path="/about" element={<AboutUs />} />
-        <Route path="/gallery" element={<Gallery/>} />
+        <Route path="/certificate-download" element={<DownloadCertificates />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/events" element={<Events />} />
         <Route path="/membership" element={<Membership />} />
+        {/* @todo ->> if admin is not login then following routes can't be access */}
+        <Route path="/dashboard" element={<DashBoard />} />
+        <Route path="/list-event" element={<ListEvent />} />
+        <Route path="/upload-certificate" element={<UploadCertificates />} />
+
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }
