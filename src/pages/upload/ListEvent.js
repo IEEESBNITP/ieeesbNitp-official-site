@@ -42,8 +42,9 @@ function ListEvent() {
 
     return (
         <>
-            <div className="bg-[#181F2A]">
-                <div className='md:p-20'>
+            <div className="dark:bg-[#181F2A]">
+                <h1 className='text-xl text-center text-gray-50 font-serif py-5'>List New Upcoming Event</h1>
+                <div className='md:p-20 px-5 py-2'>
                     <form>
                         <div>
                             <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Event Name</label>
@@ -74,7 +75,7 @@ function ListEvent() {
                         <div>
                             <button
                                 className="uppercase mt-5 text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" onClick={handleSubmit} type="submit">
-                                {!loader ? "Submit" : "Loading..."}
+                                {!loader ? "List" : "Listing..."}
                             </button>
                         </div>
                     </form>
