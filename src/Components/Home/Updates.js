@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React, {useEffect} from 'react'
+import {auth} from '../../Firebase'
 function Updates() {
+   useEffect(()=>{
+         
+   },[])
     return (
         <section className="pb-20 dark:bg-[#181F2A]  mt-2">
             <div className="container mx-auto px-4">
