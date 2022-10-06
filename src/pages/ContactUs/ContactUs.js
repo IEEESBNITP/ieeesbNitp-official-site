@@ -3,7 +3,7 @@ import React from 'react'
 function ContactUs() {
     return (
         <>
-            <div className="bg-gray-800 text-gray-100 px-8 py-12">
+            <div className="bg-gray-800 text-gray-100 p-2 md:px-8 md:py-12">
                 <div className="text-center w-full">
                     <svg className="text-gray-100 h-8 mx-auto" viewBox="0 0 150 29" version="1.1"
                         xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -535,27 +535,29 @@ function ContactUs() {
                         </div>
                     </div>
                     <div className="">
-                        <div>
-                            <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
-                            <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="" />
-                        </div>
-                        <div className="mt-8">
-                            <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
-                            <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
-                                type="text" />
-                        </div>
-                        <div className="mt-8">
-                            <span className="uppercase text-sm text-gray-600 font-bold">Message</span>
-                            <textarea
-                                className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
-                        </div>
-                        <div className="mt-8">
-                            <button
-                                className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">
-                                Send Message
-                            </button>
-                        </div>
+                        <form action="mailto:krcpr007@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
+                            <div>
+                                <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
+                                <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                                    type="text" placeholder="Full Name" name="Contact-Name" />
+                            </div>
+                            <div className="mt-8">
+                                <span className="uppercase text-sm text-gray-600 font-bold">Email</span>
+                                <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                                    type="text" placeholder='Email' name="Contact-Email" />
+                            </div>
+                            <div className="mt-8">
+                                <span className="uppercase text-sm text-gray-600 font-bold">Message</span>
+                                <textarea
+                                    className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" placeholder='Message' name="Contact-Message" />
+                            </div>
+                            <div className="mt-8">
+                                <button
+                                    className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" value="Submit">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
