@@ -13,10 +13,7 @@ function DownloadCertificates() {
         const ref = collection(db, "certificates");
         const q = query(ref, where("roll", "==", roll));
         const querySnapshot = await getDocs(q);
-        // querySnapshot.forEach((doc) => {
-        //     // doc.data() is never undefined for query doc snapshots
-        //     setCertificates(doc.data()); 
-        // });
+
         const cert = []
         querySnapshot.forEach((doc) => {
             return cert.push({
@@ -30,10 +27,9 @@ function DownloadCertificates() {
     }
     return (
         <>
-            <section className='dark:bg-[#181F2A]'>
-
+            <section className='dark:bg-[#181F2A] py-12'>
                 <div className="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48">
-                    <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-800">
+                    <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-900">
                         <div className="px-6 py-6 md:px-8 md:py-0">
                             <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-blue-600 dark:text-blue-400 md:text-blue-300">Event</span> Certificates</h2>
 
@@ -52,7 +48,7 @@ function DownloadCertificates() {
                     </div>
                 </div>
                 <div className='py-2'>
-                    <h1 className='text-center text-gray-400 text-xl'>Your certificates display here </h1>
+                    <h1 className='text-center text-gray-400 text-xl uppercase'>Your certificates display here </h1>
                     <div className='px-8'>
                         <div className="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             {certificate.map((item) => {
