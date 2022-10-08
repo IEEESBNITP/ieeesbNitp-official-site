@@ -46,8 +46,8 @@ function Login() {
     }
 
     return (
-        <>
-            <div className="min-h-screen py-6 flex bg-[#181F2A] flex-col justify-center sm:py-12">
+        <> 
+            <div className="min-h-screen py-6 flex bg-white dark:bg-[#181F2A] flex-col justify-center sm:py-12 pattern">
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                     <div
                         className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
@@ -69,7 +69,7 @@ function Login() {
                                             <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                                         </div>
                                         <div className="relative">
-                                            <button className="bg-blue-500 text-white rounded-md px-2 py-1" type='submit' onClick={handleLogin}>{loader ? "Wait.." : "Login"}</button>
+                                            <button className="border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" type='submit' onClick={handleLogin}>{loader ? "Wait.." : "Login"}</button>
                                         </div>
                                     </div>
                                 </div>
