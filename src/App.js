@@ -16,9 +16,11 @@ import UploadCertificates from "./pages/upload/UploadCertificates";
 import DownloadCertificates from "./pages/certificates/DownloadCertificates";
 import EventsDetails from "./pages/Events/EventsDetails";
 import UploadExcom from "./pages/upload/UploadExcom";
+import './App.css'
 function App() {
   return (
     <>
+      <div className="cursor"></div>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
