@@ -28,7 +28,7 @@ function ContactUs() {
                     </svg>
                 </div>
                 <div
-                    className="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 text-gray-900 rounded-lg shadow-lg">
+                    className="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-300 rounded-lg shadow-lg">
                     <div className="flex flex-col justify-between">
                         <div>
                             <h2 className="text-4xl lg:text-5xl font-bold leading-tight">Lets talk about everything!</h2>
@@ -553,7 +553,7 @@ function ContactUs() {
                             </div>
                             <div className="mt-8">
                                 <button
-                                    className="uppercase text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" value="Submit">
+                                    className="uppercase border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg w-full text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" value="Submit">
                                     Send Message
                                 </button>
                             </div>
