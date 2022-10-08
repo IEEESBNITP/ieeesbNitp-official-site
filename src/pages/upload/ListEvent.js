@@ -74,7 +74,7 @@ function ListEvent() {
                         </div>
                         <div>
                             <button
-                                className="uppercase mt-5 text-sm font-bold tracking-wide bg-indigo-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline" onClick={handleSubmit} type="submit">
+                                className="mt-5 border shadow-xl  border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg w-full" onClick={handleSubmit} type="submit">
                                 {!loader ? "List" : "Listing..."}
                             </button>
                         </div>

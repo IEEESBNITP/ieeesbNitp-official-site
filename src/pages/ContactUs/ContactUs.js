@@ -553,7 +553,7 @@ function ContactUs() {
                             </div>
                             <div className="mt-8">
                                 <button
-                                    className="uppercase border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg w-full text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" value="Submit">
+                                    className="uppercase border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg w-full text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" type='submit'>
                                     Send Message
                                 </button>
                             </div>

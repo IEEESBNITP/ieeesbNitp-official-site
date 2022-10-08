@@ -123,7 +123,7 @@ function UploadExcom() {
                                 </div>
                             </div>
                             <div className='my-1'>
-                                <button className="bg-blue-500 text-white rounded-md px-2 py-1" type='submit' onClick={handleSubmit}>{loader ? "Upload" : "Submit"}</button>
+                                <button className="border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-md" type='submit' onClick={handleSubmit}>{loader ? "Upload" : "Submit"}</button>
                             </div>
                         </div>
                     </form>
