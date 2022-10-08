@@ -1,27 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { auth } from '../../Firebase'
 function Navbar() {
     // const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
     const localAuth = localStorage.getItem('ieee-auth');
-    useEffect(() => {
-        //for running the script to toggle the the navbar
-        const script = document.createElement('script');
-        script.src = "script.js";
-        script.async = true;
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        }
-    }, []);
     return (
         <>
             <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900">
                 <div>
                     <Link to="/">
-                        <img src="ieeelogo.png" alt="" className='w-20' />
+                        <img src="ieeeLogo.png" alt="" className='w-20' />
                     </Link>
                 </div>
                 <svg
@@ -57,7 +45,9 @@ function Navbar() {
                             <Link className="md:p-4 py-2 block hover:text-amber-600" to="/about">About</Link>
                         </li>
                         <li>
-                            {(localAuth && auth ) ? <Link className="md:p-4 py-2 block hover:text-amber-600 text-purple-500" to="/dashboard">DashBoard</Link> : <Link className="md:p-4 py-2 block hover:text-amber-600 text-purple-500" to="/login">Admin</Link>}
+                            {(localAuth && auth) ? <Link className="block py-2 pr-4 pl-3 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 md:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" to="/dashboard"> <span className='md:text-amber-500 font-serif md:bg-amber-600 md:bg-opacity-20 md:border border-amber-500 md:hover:bg-opacity-10 md:p-3 rounded'>DashBoard</span>
+                            </Link> : <Link className="block py-2 pr-4 pl-3 hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 md:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" to="/login"> <span className='md:text-amber-500 font-serif md:bg-amber-600 md:bg-opacity-20 md:border border-amber-500 md:hover:bg-opacity-10 md:p-3 rounded'>Admin</span>
+                            </Link>}
                         </li>
                     </ul>
                 </div>
