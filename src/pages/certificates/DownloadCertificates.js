@@ -6,9 +6,13 @@ function DownloadCertificates() {
     const [loader, setLoader] = useState(false);
     const [roll, setRoll] = useState('');
     const [certificate, setCertificates] = useState([]);
-
+    
     const searchCertificate = async (e) => {
         e.preventDefault()
+        if(roll.length>7 || roll.length<7){
+            alert("Input correct Value"); 
+            setRoll('');
+        }
         setLoader(true);
         const ref = collection(db, "certificates");
         const q = query(ref, where("roll", "==", roll));
@@ -42,7 +46,7 @@ function DownloadCertificates() {
                             <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-gray-600 lg:flex-row dark:focus-within:border-blue-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
                                 <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="roll" placeholder="Enter your Roll Number" aria-label="Enter your Roll" value={roll} onChange={e => setRoll(e.target.value)} />
 
-                                <button type='submit' className="px-4 py-3 text-sm font-medium tracking-wider text-gray-100 uppercase transition-colors duration-300 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none" onClick={searchCertificate}>{loader ? "Searching" : "Download"}</button>
+                                <button type='submit' className="border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" onClick={searchCertificate}>{loader ? "Searching" : "Download"}</button>
                             </div>
                         </form>
                     </div>
