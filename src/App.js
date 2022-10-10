@@ -17,7 +17,9 @@ import UploadCertificates from "./pages/upload/UploadCertificates";
 import DownloadCertificates from "./pages/certificates/DownloadCertificates";
 import EventsDetails from "./pages/Events/EventsDetails";
 import UploadExcom from "./pages/upload/UploadExcom";
+import Error from './pages/Error/Error'
 import './App.css'
+import UploadPictures from "./pages/upload/UploadPictures";
 function App() {
   useEffect(() => {
     //for running the script to toggle the the navbar
@@ -47,11 +49,13 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/events/:name" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
+        <Route path="/*" element={<Error/>} />
         {/* @todo ->> if admin is not login then following routes can't be access */}
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/list-event" element={<ListEvent />} />
         <Route path="/upload-certificate" element={<UploadCertificates />} />
         <Route path="/add-excom" element={<UploadExcom />} />
+        <Route path="/upload-gallery" element={<UploadPictures />} />
 
       </Routes>
       <Footer />

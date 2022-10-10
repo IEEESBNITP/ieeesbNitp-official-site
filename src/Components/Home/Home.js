@@ -59,7 +59,7 @@ function Home() {
           <div className='lg:w-3/5'>
             <div className='lg:py-20 px-7'>
               <h1 className='lg:text-4xl  font-medium text-left text-gray-900 dark:text-gray-400'>IEEE is the world's largest technical professional organization dedicated to advancing technology for the benefit of humanity</h1>
-              <span className='flex font-serif font-medium underline text-amber-600 hover:text-gray-300 cursor-pointer w-28'>Know More <BsArrowRightCircleFill className='m-1' /> </span>
+              <a href='https://www.ieee.org/' target="_blank" rel="noreferrer" className='flex font-serif font-medium underline text-amber-600 hover:text-gray-300 cursor-pointer w-28'>Know More <BsArrowRightCircleFill className='m-1' /> </a>
             </div>
           </div>
         </div>
