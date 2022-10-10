@@ -535,7 +535,7 @@ function ContactUs() {
                         </div>
                     </div>
                     <div className="">
-                        <form action="mailto:krcpr007@gmail.com" method="POST" enctype="multipart/form-data" name="EmailForm">
+                        <form action="mailto:krcpr007@gmail.com" method="POST" encType="multipart/form-data" name="EmailForm">
                             <div>
                                 <span className="uppercase text-sm text-gray-600 font-bold">Full Name</span>
                                 <input className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
