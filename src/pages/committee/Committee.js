@@ -10,7 +10,7 @@ import {
 } from 'firebase/firestore'
 function Committee() {
     const [loading, setLoading] = useState(false);
-    const [year, setYear] = useState('com20222023'); 
+    const [year, setYear] = useState('com20222023');
     const [committee, setCommittee] = useState([]);
     const fetchCommittee = async () => {
         try {
@@ -44,7 +44,7 @@ function Committee() {
 
     useEffect(() => {
         fetchCommittee();
-         // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [year])
     if (loading) {
         return <h1>Loading</h1>
@@ -54,11 +54,11 @@ function Committee() {
             <section className="bg-white dark:bg-[#181F2A]">
                 <div className=''>
                     <label htmlFor="cars" className='text-gray-400'>Year </label>
-                    <select name="cars" id="cars" className='bg-blue-700 rounded px-5 py-1 text-gray-400' onChange={e=>setYear(e.target.value)}>
+                    <select name="year" id="year" className='bg-amber-600 rounded px-5 py-1 text-white' value={year} onChange={e => setYear(e.target.value)}>
                         <option value="com20222023">2022</option>
                         <option value="com20212022">2021</option>
-                        <option value="2021">2021</option>
-                        <option value="2021">2021</option>
+                        <option value="com20202021">2020</option>
+                        <option value="com20192020">2019</option>
                     </select>
                 </div>
                 <div className="container px-6 py-10 mx-auto">

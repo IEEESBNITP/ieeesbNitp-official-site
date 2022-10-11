@@ -1,10 +1,11 @@
 import React from 'react'
-import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import {FaInstagram, FaLinkedin } from 'react-icons/fa';
+import {SiGmail } from 'react-icons/si';
 function ProfileCard({data}) {
     return (
         <>
-            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border cursor-pointer rounded-xl hover:border-transparent group hover:bg-blue-600 dark:border-gray-700 dark:hover:border-transparent">
-                <img className="object-cover w-32 h-32 rounded-full ring-4 ring-gray-300" src={data.imgPath} alt="" />
+            <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border-2 cursor-pointer rounded-xl border-amber-500 hover:border-transparent group  hover:shadow-xl dark:border-gray-700 dark:hover:border-transparent">
+                <img className="object-cover w-36 h-36 rounded-full ring-2 ring-amber-400 " src={data.imgPath} alt="" />
 
                 <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-white">{data.name}</h1>
 
@@ -20,7 +21,7 @@ function ProfileCard({data}) {
                     </a>
 
                     <a href={`mailto:${data.email}`} target="_blank" rel='noreferrer' className="mx-2 text-gray-600 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-300 group-hover:text-white" aria-label="Github">
-                       <FaGithub className='text-xl'/>
+                       <SiGmail className='text-xl'/>
                     </a>
                 </div>
             </div>
