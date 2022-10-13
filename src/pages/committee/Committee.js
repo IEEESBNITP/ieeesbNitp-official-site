@@ -8,6 +8,7 @@ import {
     // orderBy,
     // limit,
 } from 'firebase/firestore'
+// import PageLoader from '../PageLoader/PageLoader';
 function Committee() {
     const [loading, setLoading] = useState(false);
     const [year, setYear] = useState('com20222023');
@@ -47,7 +48,8 @@ function Committee() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [year])
     if (loading) {
-        return <h1>Loading</h1>
+        // return <PageLoader/>
+        return <h1>Loading...</h1>
     }
     return (
         <>
