@@ -27,7 +27,6 @@ function DownloadCertificates() {
         })
         setCertificates(cert);
         setLoader(false);
-        console.table(certificate);
     }
     return (
         <>
@@ -37,7 +36,7 @@ function DownloadCertificates() {
                         <div className="px-6 py-6 md:px-8 md:py-0">
                             <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-500 md:text-amber-300">Event</span> Certificates</h2>
 
-                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate if you ever won the any event an prize/position</p>
+                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate if you ever won the any event an prize/position with your roll number</p>
                         </div>
                     </div>
 
