@@ -102,23 +102,23 @@ function UploadExcom() {
                                 <label htmlFor="file" className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Image</label>
                                 <input type="file" name='file' id='file' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' onChange={e => setFile(e.target.files[0])} />
                             </div>
-                            <div className='flex'>
+                            <div className='sm:flex'>
                                 <div>
                                     <label htmlFor="linkedin" className='mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Linkedin: </label>
                                     <input type="text" name='linkedin' id='linkedin' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                                        value={member.linkedin} onChange={handleInputs}
+                                        value={member.linkedin} onChange={handleInputs} placeholder="Linkedin Url"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="insta" className='mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Instagram: </label>
-                                    <input type="text" name='insta' id='insta' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                                        value={member.insta} onChange={handleInputs}
+                                    <label htmlFor="insta" className='mb-2 md:ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Instagram: </label>
+                                    <input type="text" name='insta' id='insta' className='bg-gray-50 border md:ml-2 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                        value={member.insta} onChange={handleInputs} placeholder="Instagram Url"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="email" className='mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Email: </label>
-                                    <input type="email" name='email' id='email' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                                        value={member.email} onChange={handleInputs}
+                                    <label htmlFor="email" className='mb-2 text-sm md:ml-4 font-medium text-gray-900 dark:text-gray-300'>Email: </label>
+                                    <input type="email" name='email' id='email' className='bg-gray-50 md:ml-4 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                        value={member.email} onChange={handleInputs} placeholder="Email"
                                     />
                                 </div>
                             </div>

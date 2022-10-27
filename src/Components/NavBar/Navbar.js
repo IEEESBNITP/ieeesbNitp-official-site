@@ -1,15 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../../Firebase'
 function Navbar() {
+    const navigate = useNavigate();
     // const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
     const localAuth = localStorage.getItem('ieee-auth');
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900">
+            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900 font-serif">
                 <div>
                     <Link to="/">
-                        <img src="ieeeLogo.png" alt="" className='w-20' />
+                        <img src="ieeeLogo.png" alt="" className='w-20 h-10' />
+                        {/* <img src="ieeeLogoBlack.png" alt="" className='w-20 dark:hidden light:hidden' /> */}
                     </Link>
                 </div>
                 <svg
@@ -36,7 +38,7 @@ function Navbar() {
                             <Link className="md:p-4 py-2 block hover:text-amber-600" to="/committee">Committee</Link>
                         </li>
                         <li>
-                            <Link className="md:p-4 py-2 block hover:text-amber-600" to="/certificate-download" title='Download certificate'>E-certificate</Link>
+                            <Link className="md:p-4 py-2 block hover:text-amber-600" to="/certificate-download" title='Download certificate'>E-Certificate</Link>
                         </li>
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-amber-600" to="/blogs">Blogs</Link>

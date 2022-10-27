@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom"
 import Navbar from './Components/NavBar/Navbar'
 import Home from './Components/Home/Home'
@@ -20,7 +20,10 @@ import UploadExcom from "./pages/upload/UploadExcom";
 import Error from './pages/Error/Error'
 import './App.css'
 import UploadPictures from "./pages/upload/UploadPictures";
+import Loader from "./pages/PageLoader/Loader";
+// import PrivateComponent from "./Private/PrivateComp";
 function App() {
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
     //for running the script to toggle the the navbar
     const script = document.createElement('script');
@@ -33,6 +36,9 @@ function App() {
       document.body.removeChild(script);
     }
   }, []);
+  if (loader) {
+    return <Loader />
+  }
   return (
     <>
       <div className="cursor"></div>
@@ -47,16 +53,17 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/events/:name" element={<EventsDetails />} />
+        <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
-        <Route path="/*" element={<Error/>} />
-        {/* @todo ->> if admin is not login then following routes can't be access */}
+        <Route path="/*" element={<Error />} />
+        {/* <Route element={<PrivateComponent/>}> */}
+        {/* @todo ->> if admin is not login then following routes can't be access it will redirect to login page */}
         <Route path="/dashboard" element={<DashBoard />} />
         <Route path="/list-event" element={<ListEvent />} />
         <Route path="/upload-certificate" element={<UploadCertificates />} />
         <Route path="/add-excom" element={<UploadExcom />} />
         <Route path="/upload-gallery" element={<UploadPictures />} />
-
+        {/* </Route> */}
       </Routes>
       <Footer />
     </>

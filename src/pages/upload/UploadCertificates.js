@@ -73,7 +73,7 @@ function UploadCertificates() {
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">
-                                    <button className="flex mx-auto border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" type='submit' onClick={handleSubmit}>{!loader ? "Upload" : "Uploading..."}</button>
+                                    <button className="flex mx-auto tailwind-btn" type='submit' onClick={handleSubmit}>{!loader ? "Upload" : "Uploading..."}</button>
                                 </div>
                             </div>
                         </form>

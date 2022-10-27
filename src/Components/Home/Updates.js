@@ -37,7 +37,6 @@ function Updates() {
                 })
             })
             setEvents(event);
-            // setListings(listings)
             setLoading(false)
         } catch (error) {
             console.log(error);
@@ -58,7 +57,7 @@ function Updates() {
                             className="relative flex flex-col min-w-0 break-words bg-white dark:bg-gray-900 shadow-lg hover:shadow-2xl w-full mb-8 rounded-lg border-b border-amber-500"
                         >
                             <div className="flex-auto">
-                                <Link to={`/events/${events[0]?.data?.name}`}>
+                                <Link to={`/events/${events[0]?.id}`}>
                                     <img src={events[0]?.data?.imgPath} alt="" />
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[0]?.data?.name}</h6>
@@ -73,7 +72,7 @@ function Updates() {
                             className="relative flex flex-col min-w-0 break-words bg-white dark:bg-gray-900 w-full mb-8 shadow-lg hover:shadow-2xl rounded-lg border-b border-amber-500"
                         >
                             <div className=" flex-auto">
-                                <Link to={`/events/${events[1]?.data?.name}`}>
+                                <Link to={`/events/${events[1]?.id}`}>
                                     <img src={events[1]?.data?.imgPath} alt="" title='See full details' />
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[1]?.data?.name}</h6>
@@ -88,7 +87,7 @@ function Updates() {
                             className="relative flex flex-col min-w-0 break-words bg-white dark:bg-gray-900 w-full mb-8 shadow-lg hover:shadow-2xl rounded-lg border-b border-amber-500"
                         >
                             <div className="flex-auto">
-                                <Link to={`/events/${events[2]?.data?.name}`}>
+                                <Link to={`/events/${events[2]?.id}`}>
                                     <img src={events[2]?.data?.imgPath} alt="" />
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[2]?.data?.name}</h6>
