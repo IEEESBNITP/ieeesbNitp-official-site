@@ -34,37 +34,37 @@ function DashBoard() {
         </div>
         <div className='md:flex'>
           <div>
-            <img src="study.png" alt="" />
+            <img src="study.png" alt="dashboard-img" loading='lazy' />
           </div>
-          <div class="flex-grow p-6 overflow-auto bg-g">
-            <div class="grid grid-cols-3 gap-6">
-              <div class="">
+          <div className="flex-grow p-6 overflow-auto bg-g">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="">
                 <Link to="/list-event">
                   <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add New Event</button>
                 </Link>
               </div>
-              <div class="">
+              <div className="">
                 <Link to="/upload-certificate" > 
                   <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Upload Certificate</button>
                 </Link>
               </div>
-              <div class="">
+              <div className="">
                 <Link to="/add-excom">
                   <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add ExCom</button>
                 </Link>
               </div>
-              <div class="">
+              <div className="">
                 <Link to="/upload-gallery">
                   <button className='tailwind-btn h-24 col-span-2 shadow w-full font-serif'>Upload Images</button>
                 </Link>
               </div>
-              <div class="">
+              <div className="">
                 <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif' onClick={handleLogout}>Logout Admin</button>
               </div>
-              <div class="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
-              <div class="h-24 col-span-2 bg-amber-600 border border-amber-300"></div>
-              <div class="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
-              <div class="h-24 col-span-3 bg-amber-600 border border-amber-300"></div>
+              <div className="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
+              <div className="h-24 col-span-2 bg-amber-600 border border-amber-300"></div>
+              <div className="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
+              <div className="h-24 col-span-3 bg-amber-600 border border-amber-300"></div>
             </div>
           </div>
         </div>

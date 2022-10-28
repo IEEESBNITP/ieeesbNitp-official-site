@@ -55,7 +55,7 @@ function EventsDetails() {
             <span className='text-amber-700'>Date : {eventData?.date}</span>
           </div>
           <div className="mt-10 -mx-4 md:-mx-12 relative lg:mt-0 lg:col-start-1">
-            <img src={eventData?.imgPath} alt="illustration" className="relative mx-auto shadow-lg lg:w-[32rem] rounded w-auto" />
+            <img src={eventData?.imgPath} alt="poster" loading='lazy' className="relative mx-auto shadow-lg lg:w-[32rem] rounded w-auto" />
           </div>
         </div>
       </div>
