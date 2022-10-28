@@ -56,8 +56,8 @@ function Committee() {
         <>
             <section className="bg-white dark:bg-[#181F2A]">
                 <div className=''>
-                    <div className='hero container max-w-screen-lg mx-auto flex justify-center pt-5'>
-                        <img src="Prof.Incharge.jpg" className='w-1/4 rounded-xl ring-1 ring-amber-600' alt="prof.Incharge" />
+                    <div className='hero container max-w-screen-lg mx-auto flex justify-center pt-5 px-3 md:px-0'>
+                        <img src="Prof.Incharge.jpg" className='md:w-1/4 lg:w-1/3 rounded-xl ring-1 ring-amber-600' alt="prof.Incharge" loading="lazy" />
 
                     </div>
                     <div className='text-center'>
@@ -84,7 +84,7 @@ function Committee() {
                     </p>
                     <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
                         {committee.map((item) => {
-                            return <ProfileCard key={item.id} id={item.id} data={item.data} />
+                            return <ProfileCard key={item.id} id={item.id} data={item.data} fetchCommittee={fetchCommittee} />
                         })}
                     </div>
                 </div>
