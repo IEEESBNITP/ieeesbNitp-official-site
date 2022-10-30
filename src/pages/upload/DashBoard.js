@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom'
-import { auth } from '../../Firebase'
+import { useNavigate } from 'react-router-dom';
+import { auth } from '../../Firebase';
 import { signOut } from 'firebase/auth';
 function DashBoard() {
   const navigate = useNavigate();
@@ -28,24 +28,48 @@ function DashBoard() {
   return (
     <>
       <div className='dark:bg-[#181F2A] text-gray-400'>
-
         <div className='mx-5 py-5'>
-          <h1 className='text-3xl text-center'>Welcome</h1>
+          <h1 className='text-3xl text-center font-medium'> <span className='text-amber-600'>Dash</span>Board</h1>
           <hr />
         </div>
         <div className='md:flex'>
           <div>
             <img src="study.png" alt="" />
           </div>
-          <div className='p-10'>
-            <Link to="/list-event"><button className='bg-blue-500 text-white rounded-md px-2 py-1'>Add new Event</button></Link>
-            <Link to="/add-excom"><button className='bg-blue-500 text-white rounded-md px-2 py-1'>Add ExCom</button></Link>
-            <Link to="/upload-gallery"><button className='bg-blue-500 text-white rounded-md px-2 py-1'>Upload Images</button></Link>
-            <Link to="/upload-certificate" > <button className='bg-blue-500 text-white rounded-md px-2 py-1'>Upload certificate</button> </Link>
-            <button className='bg-blue-500 text-white rounded-md px-2 py-1' onClick={handleLogout} >Logout Admin</button>
+          <div class="flex-grow p-6 overflow-auto bg-g">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="">
+                <Link to="/list-event">
+                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add New Event</button>
+                </Link>
+              </div>
+              <div class="">
+                <Link to="/upload-certificate" > 
+                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Upload Certificate</button>
+                </Link>
+              </div>
+              <div class="">
+                <Link to="/add-excom">
+                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add ExCom</button>
+                </Link>
+              </div>
+              <div class="">
+                <Link to="/upload-gallery">
+                  <button className='tailwind-btn h-24 col-span-2 shadow w-full font-serif'>Upload Images</button>
+                </Link>
+              </div>
+              <div class="">
+                <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif' onClick={handleLogout}>Logout Admin</button>
+              </div>
+              <div class="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
+              <div class="h-24 col-span-2 bg-amber-600 border border-amber-300"></div>
+              <div class="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
+              <div class="h-24 col-span-3 bg-amber-600 border border-amber-300"></div>
+            </div>
           </div>
         </div>
       </div>
+
     </>
   )
 }
