@@ -34,7 +34,7 @@ function DownloadCertificates() {
                 <div className="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48">
                     <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-900">
                         <div className="px-6 py-6 md:px-8 md:py-0">
-                            <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-500 md:text-amber-300">Event</span> Certificates</h2>
+                            <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-600 md:text-amber-600">Event</span> Certificates</h2>
 
                             <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate if you ever won the any event an prize/position with your roll number</p>
                         </div>
@@ -42,8 +42,8 @@ function DownloadCertificates() {
 
                     <div className="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
                         <form>
-                            <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg dark:border-amber-500 lg:flex-row dark:focus-within:border-amber-300 focus-within:ring focus-within:ring-opacity-40 focus-within:border-amber-400 focus-within:ring-amber-500">
-                                <input className="px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="roll" placeholder="Roll Number" aria-label="Enter your Roll" value={roll} onChange={e => setRoll(e.target.value)} />
+                            <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg border-amber-500 lg:flex-row dark:focus-within:border-amber-500 focus-within:ring focus-within:ring-opacity-40 focus-within:border-amber-500 focus-within:ring-amber-500">
+                                <input className="px-6 py-2 text-gray-700 dark:text-amber-500 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="roll" placeholder="Roll Number" aria-label="Enter your Roll" value={roll} onChange={e => setRoll(e.target.value)} />
 
                                 <button type='submit' className="border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" onClick={searchCertificate}>{loader ? "Searching" : "Download"}</button>
                             </div>
@@ -51,7 +51,7 @@ function DownloadCertificates() {
                     </div>
                 </div>
                 <div className='py-2'>
-                    <h1 className='text-center text-gray-400 text-xl uppercase'>Your certificates display here </h1>
+                    <h1 className='text-center text-gray-500 dark:text-gray-400 text-xl uppercase'>Your certificates will display here </h1>
                     <div className='px-8'>
                         <div className="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                             {certificate.map((item) => {

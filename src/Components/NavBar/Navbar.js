@@ -7,7 +7,7 @@ function Navbar() {
     const localAuth = localStorage.getItem('ieee-auth');
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900 font-serif">
+            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900 font-serif shadow-lg dark:shadow-sm">
                 <div>
                     <Link to="/">
                         <img src="ieeeLogo.png" alt="Logo" className='w-20 h-10' loading='lazy' />
@@ -30,7 +30,7 @@ function Navbar() {
                     />
                 </svg>
                 <div className="hidden w-full md:flex md:items-center md:w-auto" id="menu">
-                    <ul className="pt-4 text-base text-gray-700 md:flex md:justify-between md:pt-0">
+                    <ul className="pt-4 text-base text-gray-900 dark:text-gray-400 md:flex md:justify-between md:pt-0">
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-amber-600" to="/events">Events</Link>
                         </li>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { auth, storage } from '../../Firebase';
+import { auth, storage ,db } from '../../Firebase';
 import { GiCrossedSabres } from 'react-icons/gi';
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes, deleteObject } from 'firebase/storage';
@@ -7,7 +7,6 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { FiEdit } from 'react-icons/fi'
 import { AiFillDelete } from 'react-icons/ai'
-import { db } from '../../Firebase'
 import SimpleLoader from '../PageLoader/SimpleLoader';
 function ProfileCard({ data, id, fetchCommittee }) {
     const [file, setFile] = useState();
@@ -158,7 +157,7 @@ function ProfileCard({ data, id, fetchCommittee }) {
                                     </div>
                                     <div>
                                         <label htmlFor="file" className='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300'>Image</label>
-                                        <input type="file" name='file' id='file' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' onChange={e => setFile(e.target.files[0])} />
+                                        <input type="file" name='file' id='file' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' onChange={e => setFile(e.target.files[0])} accept="image/*" />
                                     </div>
                                     <div className='sm:flex'>
                                         <div>
