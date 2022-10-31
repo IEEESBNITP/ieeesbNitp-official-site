@@ -1,13 +1,22 @@
-import React, { useState } from 'react'
-import { db, storage } from '../../Firebase';
+import React, { useEffect, useState } from 'react'
+import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 function UploadCertificates() {
     const [loader, setLoader] = useState(false);
     const [roll, setRoll] = useState('');
     const [date, setDate] = useState("");
     const [eventName, setEventName] = useState('');
     const [file, setFile] = useState();
+    const navigate = useNavigate();
+    const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
+    useEffect(() => { // if admin is not logged-in then redirect to login page 
+      if (!(auth.currentUser && localAuth)) {
+        navigate('/login')
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (roll !== "" && eventName !== "" && file !== "" && date !=="") {

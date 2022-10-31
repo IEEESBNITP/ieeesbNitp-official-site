@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { db, storage } from '../../Firebase';
+import React, { useEffect, useState } from 'react'
+import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 function UploadExcom() {
     const [loader, setLoader] = useState(false);
     const [file, setFile] = useState();
@@ -14,6 +15,15 @@ function UploadExcom() {
         email: '',
         linkedin: ''
     })
+    const navigate = useNavigate();
+    const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
+    useEffect(() => { 
+        // if admin is not logedin then redirect to login page 
+      if (!(auth.currentUser && localAuth)) {
+        navigate('/login')
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     const handleInputs = (e) => {
         let name, value;
         name = e.target.name;

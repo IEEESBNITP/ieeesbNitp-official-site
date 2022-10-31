@@ -1,14 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { db, storage } from '../../Firebase';
+import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 function ListEvent() {
     const [loader, setLoader] = useState(false);
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const [date, setDate] = useState("");
     const [file, setFile] = useState();
+    const navigate = useNavigate();
+    const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
+    useEffect(() => { // if admin is not logged-in then redirect to login page 
+      if (!(auth.currentUser && localAuth)) {
+        navigate('/login')
+      }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (name !== "" && desc !== "" && file !== "" && date !== "") {
