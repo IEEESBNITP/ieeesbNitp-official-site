@@ -13,16 +13,18 @@ function DashBoard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleLogout = () => {
-    if (auth.currentUser && localAuth) {
-      localStorage.removeItem('ieee-auth')
-      signOut(auth)
-        .then(() => {
-          alert("logout")
-          navigate('/login')
-        })
-        .catch((err) => { console.log(err) })
-    } else {
-      alert("already logout")
+    const yes = window.confirm("Are You To Sure Logout?")
+    if (yes) {
+      if (auth.currentUser && localAuth) {
+        localStorage.removeItem('ieee-auth')
+        signOut(auth)
+          .then(() => {
+            navigate('/login')
+          })
+          .catch((err) => { console.log(err) })
+      } else {
+        alert("already logout")
+      }
     }
   }
   return (
@@ -40,26 +42,26 @@ function DashBoard() {
             <div className="grid grid-cols-3 gap-6">
               <div className="">
                 <Link to="/list-event">
-                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add New Event</button>
+                  <button className='tailwind-btn dark:border-gray-300 h-24 col-span-1 shadow w-full font-serif'>Add New Event</button>
                 </Link>
               </div>
               <div className="">
-                <Link to="/upload-certificate" > 
-                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Upload Certificate</button>
+                <Link to="/upload-certificate" >
+                  <button className='tailwind-btn dark:border-gray-300 h-24 col-span-1 shadow w-full font-serif'>Upload Certificate</button>
                 </Link>
               </div>
               <div className="">
                 <Link to="/add-excom">
-                  <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif'>Add ExCom</button>
+                  <button className='tailwind-btn dark:border-gray-300 h-24 col-span-1 shadow w-full font-serif'>Add ExCom</button>
                 </Link>
               </div>
               <div className="">
                 <Link to="/upload-gallery">
-                  <button className='tailwind-btn h-24 col-span-2 shadow w-full font-serif'>Upload Images</button>
+                  <button className='tailwind-btn dark:border-gray-300 h-24 col-span-2 shadow w-full font-serif'>Upload Images</button>
                 </Link>
               </div>
               <div className="">
-                <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif' onClick={handleLogout}>Logout Admin</button>
+                <button className='tailwind-btn dark:border-gray-300 h-24 col-span-1 shadow w-full font-serif' onClick={handleLogout}>Logout Admin</button>
               </div>
               <div className="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
               <div className="h-24 col-span-2 bg-amber-600 border border-amber-300"></div>
