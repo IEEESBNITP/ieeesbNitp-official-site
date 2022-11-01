@@ -4,7 +4,6 @@ import Navbar from './Components/NavBar/Navbar'
 import Home from './Components/Home/Home'
 import AboutUs from "./pages/About/AboutUs";
 import Blogs from "./pages/Blogs/Blogs";
-import Test from "./pages/Blogs/Test/Test";
 import Membership from './pages/Membership/Membership'
 import Events from './pages/Events/Events'
 import Footer from "./Components/Footer/Footer";
@@ -14,6 +13,7 @@ import ContactUs from "./pages/ContactUs/ContactUs";
 import Login from "./pages/upload/Login";
 import DashBoard from "./pages/upload/DashBoard";
 import ListEvent from "./pages/upload/ListEvent";
+import ListBlog from "./pages/upload/ListBlog";
 import UploadCertificates from "./pages/upload/UploadCertificates";
 import DownloadCertificates from "./pages/certificates/DownloadCertificates";
 import EventsDetails from "./pages/Events/EventsDetails";
@@ -64,6 +64,7 @@ function App() {
         <Route path="/upload-certificate" element={<UploadCertificates />} />
         <Route path="/add-excom" element={<UploadExcom />} />
         <Route path="/upload-gallery" element={<UploadPictures />} />
+        <Route path="/add-blog" element={<ListBlog />} />
         {/* </Route> */}
       </Routes>
       <Footer />
