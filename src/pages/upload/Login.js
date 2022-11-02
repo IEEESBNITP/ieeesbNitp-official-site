@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../Firebase'
 import { useNavigate } from 'react-router-dom'
+import SimpleLoader from '../PageLoader/SimpleLoader';
 function Login() {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -69,7 +70,7 @@ function Login() {
                                             <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                                         </div>
                                         <div className="relative">
-                                            <button className="tailwind-btn" type='submit' onClick={handleLogin}>{loader ? "Wait.." : "Login"}</button>
+                                            <button className="tailwind-btn" type='submit' onClick={handleLogin}>{loader ? <SimpleLoader/> : "Login"}</button>
                                         </div>
                                     </div>
                                 </div>

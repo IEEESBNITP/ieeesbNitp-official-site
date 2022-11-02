@@ -8,9 +8,9 @@ function AboutUs() {
                     <h1 className='text-center text-lg mx-5 font-serif'>SOURCE OF INSPIRATION</h1>
                     <div className='text-center'>
                         <div className='hero container max-w-screen-lg mx-auto flex justify-center'>
-                            <img src="director.jpg" className='rounded-full w-1/5 ring ring-amber-600' alt="Director-img" />
+                            <img src="director.jpg" className='rounded-full w-1/5 ring-1 ring-amber-600' alt="Director-img" loading='lazy' />
                         </div>
-                        <span className='mx-1 text-sm font-thin'>Prof. PRADIP KUMAR JAIN</span>
+                        <span className='mx-1 text-sm font-thin text-amber-600'>Prof. PRADIP KUMAR JAIN</span>
                     </div>
                     <div className='p-2 font-medium text-gray-500'>
                         <p className='text-justify'>We are blessed to find ourselves lucky to be the part of this institution which is directed by our motivational, inspirational, enthusiastically, highly legitimate and highly knowledgeable personality Prof. P.K Jain. Whenever we have stumbled with some problems, a piece of advice or direction from his side have made our path crystal clear. His righteousness has always guided us to traverse the correct path. He has always motivated us to improve and bring the best of us. He is the major source of inspiration for all of us, as he portrays the best example to live a life with simple living and high thinking. He glorifies our institutes to the best level. We are proud to be part of this institution directed by a great personality like Prof. P.K Jain, Director NIT Patna. We are thankful for all the support and guidance that he has bestowed to the students of this college. He is a senior member of IEEE, fellow of Institution of Electronics and Telecommunications Engineers of India, Fellow of Institution of Engineers of India and also a fellow of Vacuum Electron Devices and Application Society.</p>
@@ -20,7 +20,7 @@ function AboutUs() {
                     <div className='flex'>
                         <h1 className='text-2xl text-left m-2 font-serif text-amber-600'>IEEE</h1>
                         <div className='hero container max-w-screen-xl mx-auto flex justify-end'>
-                            <img src="icon_ieee_blue.png" className='h-14' alt="" />
+                            <img src="icon_ieee_blue.png" className='h-14' alt="ieee-logo" loading='lazy' />
                         </div>
                     </div>
                     <hr />
@@ -32,7 +32,7 @@ function AboutUs() {
                     <div className='flex py-1'>
                         <h1 className='font-serif m-2 text-2xl text-amber-600'>IEEE SB NIT PATNA</h1>
                         <div className='hero container max-w-screen-lg mx-auto flex justify-end'>
-                            <img src="nitplogo.png" className='h-14' alt="" />
+                            <img src="nitplogo.png" className='h-14' alt="nit-logo" loading='lazy' />
                         </div>
                     </div>
                     <hr />

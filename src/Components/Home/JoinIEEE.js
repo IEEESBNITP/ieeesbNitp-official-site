@@ -5,7 +5,7 @@ function JoinIEEE() {
         <>
             <div className='dark:bg-gray-700 bg-white md:w-3/4 shadow-md  hover:shadow-2xl rounded-md mx-3 md:ml-5 lg:ml-36'>
                 <div className='lg:flex'>
-                    <img src='pngegg.png' className='p-1 h-96' alt='' />
+                    <img src='pngegg.png' className='p-1 h-96' alt='roboto' loading='lazy'/>
                     <div className='mt-20 mx-6'>
                         <h1 className='md:text-5xl text-2xl dark:text-gray-400 text-gray-900 font-serif capitalize'>How to join IEEE</h1>
                         <ul className='list-inside list-disc dark:text-gray-500 '>

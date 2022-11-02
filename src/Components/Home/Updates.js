@@ -58,7 +58,7 @@ function Updates() {
                         >
                             <div className="flex-auto">
                                 <Link to={`/events/${events[0]?.id}`}>
-                                    <img src={events[0]?.data?.imgPath} alt="" />
+                                    <img src={events[0]?.data?.imgPath} alt="" loading='lazy'/>
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[0]?.data?.name}</h6>
                                 <p className="mt-2 mb-4 text-gray-400">
@@ -73,7 +73,7 @@ function Updates() {
                         >
                             <div className=" flex-auto">
                                 <Link to={`/events/${events[1]?.id}`}>
-                                    <img src={events[1]?.data?.imgPath} alt="" title='See full details' />
+                                    <img src={events[1]?.data?.imgPath} alt="" title='See full details' loading='lazy'/>
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[1]?.data?.name}</h6>
                                 <p className="mt-2 mb-4 text-gray-400">
@@ -88,7 +88,7 @@ function Updates() {
                         >
                             <div className="flex-auto">
                                 <Link to={`/events/${events[2]?.id}`}>
-                                    <img src={events[2]?.data?.imgPath} alt="" />
+                                    <img src={events[2]?.data?.imgPath} alt="" loading="lazy" />
                                 </Link>
                                 <h6 className="text-xl font-semibold">{events[2]?.data?.name}</h6>
                                 <p className="mt-2 mb-4 text-gray-400">
