@@ -47,7 +47,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/events/:name" element={<EventsDetails />} />
+        <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/*" element={<Error/>} />
         {/* @todo ->> if admin is not login then following routes can't be access */}
