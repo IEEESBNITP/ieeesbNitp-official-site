@@ -1,14 +1,12 @@
 import {
   VerticalTimeline,
-  VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import React, { useEffect, useState } from "react";
 import EventElements from "./EventElement";
-import { doc, getDocs, query, collection } from "firebase/firestore";
-// import SimpleLoader from '../PageLoader/SimpleLoader'
+import { getDocs, query, collection, orderBy } from "firebase/firestore";
+import SimpleLoader from '../PageLoader/SimpleLoader'
 import { db } from "../../Firebase";
-import { useParams } from "react-router-dom";
 
 export const Events = () => {
   const [loading, setLoading] = useState(false);
@@ -21,10 +19,8 @@ export const Events = () => {
 
       // Create a query
       const q = query(
-        eventRef
-
-        // orderBy('date', 'desc'),
-        // limit(3)
+        eventRef,
+        orderBy('date', 'desc'),
       );
       // Execute query
       const querySnap = await getDocs(q);
@@ -48,10 +44,13 @@ export const Events = () => {
   useEffect(() => {
     fetchEvents();
   }, []);
+  if (loading) {
+    return <SimpleLoader />
+  }
   return (
     <VerticalTimeline>
       {events.map((item) => {
-        return <EventElements key={item.id} data={item.data} />;
+        return <EventElements key={item.id} data={item.data} id={item.id} />;
       })}
     </VerticalTimeline>
   );
