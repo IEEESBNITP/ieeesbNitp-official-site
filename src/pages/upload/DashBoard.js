@@ -56,6 +56,11 @@ function DashBoard() {
                 </Link>
               </div>
               <div className="">
+                <Link to="/add-blog">
+                  <button className='tailwind-btn dark:border-gray-300 h-24 col-span-1 shadow w-full font-serif'>Add Blogs</button>
+                </Link>
+              </div>
+              <div className="">
                 <Link to="/upload-gallery">
                   <button className='tailwind-btn dark:border-gray-300 h-24 col-span-2 shadow w-full font-serif'>Upload Images</button>
                 </Link>
