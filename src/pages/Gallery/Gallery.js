@@ -2,54 +2,213 @@ import React from 'react'
 
 function Gallery() {
   return (
+    <>
     <div>
-            <div className="container mx-auto px-4 bg-slate-600"> 
-                
-                <section className="py-8 px-4">
-                  <div className="flex flex-wrap -mx-4">
-                    <div className="hidden md:block md:w-1/2 px-4">
-                      <div className="h-full w-full bg-cover rounded shadow-md" style={{"backgroundImage": "url('https://source.unsplash.com/random/1280x720')"}}></div>
-                    </div>
-                    <div className="md:w-1/2 h-auto px-4">
-                      <div className="mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                      <div><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    </div>
-                  </div>
-                </section>
-                          
-                <section className="py-8 px-4">
-                  <div className="flex flex-wrap -mx-4">
-                    <div className="md:w-1/2 px-4 mb-8 md:mb-0"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/2 px-4 mb-8 md:mb-0"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                  </div>
-                </section>
-                          
-                <section className="pt-8 px-4">
-                  <div className="flex flex-wrap -mx-4">
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/3 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                  </div>/
-                </section>
-                          
-                <section className="py-8 px-4">
-                  <div className="flex flex-wrap -mx-4 -mb-8">
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                    <div className="md:w-1/4 px-4 mb-8"><img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/></div>
-                  </div>
-                </section>
-              </div>
-/          
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Mountain"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Impulse</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#IEEE</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Impulse</span>
+      </div>
     </div>
+    
+    <div class="rounded overflow-hidden shadow-lg">
+    <img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">QUESO-E-QUEST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div>
+
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Forest"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">SDELYST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div>
+  </div>
+</div>
+          
+<div>
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Mountain"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Impulse</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#IEEE</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Impulse</span>
+      </div>
+    </div>
+    
+    <div class="rounded overflow-hidden shadow-lg">
+    <img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">QUESO-E-QUEST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div>
+
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Forest"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">SDELYST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div>
+  </div>
+</div>
+        
+<div>
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Mountain"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Impulse</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#IEEE</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Impulse</span>
+      </div>
+    </div>
+    
+    <div class="rounded overflow-hidden shadow-lg">
+    <img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">QUESO-E-QUEST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div>
+
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Forest"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">SDELYST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div>
+  </div>
+</div>
+        
+<div>
+      <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Mountain"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">Impulse</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#IEEE</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#Impulse</span>
+      </div>
+    </div>
+    
+    <div class="rounded overflow-hidden shadow-lg">
+    <img className="rounded shadow-md" src="https://source.unsplash.com/random/1280x720" alt=""/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">QUESO-E-QUEST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#summer</span>
+      </div>
+    </div>
+
+    
+    <div class="rounded overflow-hidden shadow-lg">
+      <img class="w-full" src="https://source.unsplash.com/random/1280x720" alt="Forest"/>
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">SDELYST</div>
+        <p class="text-gray-700 text-base">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        </p>
+      </div>
+      <div class="px-6 pt-4 pb-2">
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#fall</span>
+      </div>
+    </div>
+  </div>
+</div>
+        
+   
+    </>
   )
 }
 
