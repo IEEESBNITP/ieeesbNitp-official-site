@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../Firebase';
 import { signOut } from 'firebase/auth';
+import { toast } from 'react-toastify';
 function DashBoard() {
   const navigate = useNavigate();
   const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
@@ -20,6 +21,7 @@ function DashBoard() {
         signOut(auth)
           .then(() => {
             navigate('/login')
+            toast.success("Logged Out")
           })
           .catch((err) => { console.log(err) })
       } else {
