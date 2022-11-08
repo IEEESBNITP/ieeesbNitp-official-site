@@ -20,8 +20,8 @@ function ListBlog() {
     const { title, desc, date, link } = blog;
     if (title !== "" && desc !== "" && link !== "" && date !== "") {
       const res = fetch(
-        // ADD corresponding url
-        // "https://ieee-demo-web-default-rtdb.firebaseio.com/blogRecords.json",
+        
+        "https://ieee-demo-web-default-rtdb.firebaseio.com/blogRecords.json",
         
         {
           method: "POST",
