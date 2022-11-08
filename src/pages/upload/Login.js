@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../Firebase'
 import { useNavigate } from 'react-router-dom'
 import SimpleLoader from '../PageLoader/SimpleLoader';
+import { toast } from 'react-toastify';
 function Login() {
     const navigate = useNavigate();
     const [loader, setLoader] = useState(false);
@@ -19,35 +20,36 @@ function Login() {
     }, [])
     const handleLogin = (e) => {
         e.preventDefault()
-        if(email !=='' && password!==''){
+        if (email !== '' && password !== '') {
 
             setLoader(true);
             signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                localStorage.setItem('ieee-auth', JSON.stringify(user))
-                setLoader(false);
-                if (user) {
-                    setEmail(''); 
-                    setPassword('');
-                    navigate('/dashboard')
-                }
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                console.log(errorCode);
-                const errorMessage = error.message;
-                console.log(errorMessage);
-                setLoader(false);
-            });
-        }else{
-            alert("Provide correct Inputs")
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    localStorage.setItem('ieee-auth', JSON.stringify(user))
+                    setLoader(false);
+                    if (user) {
+                        setEmail('');
+                        setPassword('');
+                        navigate('/dashboard')
+                        toast.success("Login successfully")
+                    }
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    console.log(errorCode);
+                    const errorMessage = error.message;
+                    console.log(errorMessage);
+                    setLoader(false);
+                });
+        } else {
+            toast.error("Provide correct Inputs")
         }
     }
 
     return (
-        <> 
+        <>
             <div className="min-h-screen py-6 flex bg-white dark:bg-[#181F2A] flex-col justify-center sm:py-12 pattern">
                 <div className="relative py-3 sm:max-w-xl sm:mx-auto">
                     <div
@@ -70,7 +72,7 @@ function Login() {
                                             <label htmlFor="password" className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                                         </div>
                                         <div className="relative">
-                                            <button className="tailwind-btn" type='submit' onClick={handleLogin}>{loader ? <SimpleLoader/> : "Login"}</button>
+                                            <button className="tailwind-btn" type='submit' onClick={handleLogin}>{loader ? <SimpleLoader /> : "Login"}</button>
                                         </div>
                                     </div>
                                 </div>
