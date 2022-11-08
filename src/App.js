@@ -25,6 +25,7 @@ import Loader from "./pages/PageLoader/Loader";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import PrivateComponent from "./Private/PrivateComp";
+
 function App() {
   const [loader, setLoader] = useState(false);
   useEffect(() => {
@@ -55,7 +56,7 @@ function App() {
         <Route path="/certificate-download" element={<DownloadCertificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
-        <Route path="/events" element={<Events />} />
+        {/* <Route path="/events" element={<Events />} /> */}
         <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/*" element={<Error />} />
@@ -67,6 +68,7 @@ function App() {
         <Route path="/add-excom" element={<UploadExcom />} />
         <Route path="/upload-gallery" element={<UploadPictures />} />
         <Route path="/add-blog" element={<ListBlog />} />
+        
         {/* </Route> */}
       </Routes>
       <ToastContainer position="top-right"

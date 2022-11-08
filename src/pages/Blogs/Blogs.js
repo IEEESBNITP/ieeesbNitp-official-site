@@ -2,12 +2,41 @@ import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 import { db } from "../../Firebase";
 import { collection, getDocs, query } from "firebase/firestore";
-
+import SimpleLoader from "../PageLoader/SimpleLoader";
+import { FirebaseError } from "firebase/app";
 // cd ieeesbNitp-official-site
 function Blogs() {
   const [query, setQuery] = useState("");
   const keys = ["title", "description", "date"];
+  const [loading, setLoading] = useState(false);
+  const [blog, setBlog] = useState([]);
+  const fetchBlog = async () => {
+    try {
+      // Get reference
+      setLoading(false);
+      FirebaseError.db().ref('blogRecords/').on("value",snapshot => {
+        let event = [];
+        snapshot.foreach( snap => {
+          event.push(snap.val());
+        });
+        this.setBlog({event:event});
+      });
 
+
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlog();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  });
+  if (loading) {
+    // return <PageLoader/>
+    return <SimpleLoader />;
+  }
 
   //we can use firebase function to search
 
@@ -29,12 +58,18 @@ function Blogs() {
           />
         </form>
 
-
-        {/* let blog = fetched array */}
-        {/* {blog.map((item) => {
-          return <BlogCard key={item.id} id={item.id} data={item.data} />;
-        })} */}
-        
+        <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+          {blog.map((item) => {
+            return (
+              <BlogCard
+                key={item.id}
+                id={item.id}
+                data={item.data}
+                fetchBlog={fetchBlog}
+              />
+            );
+          })}
+        </div>
       </section>
     </>
   );
