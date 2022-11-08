@@ -3,6 +3,7 @@ import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 function UploadCertificates() {
     const [loader, setLoader] = useState(false);
     const [roll, setRoll] = useState('');
@@ -12,14 +13,14 @@ function UploadCertificates() {
     const navigate = useNavigate();
     const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
     useEffect(() => { // if admin is not logged-in then redirect to login page 
-      if (!(auth.currentUser && localAuth)) {
-        navigate('/login')
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (!(auth.currentUser && localAuth)) {
+            navigate('/login')
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (roll !== "" && eventName !== "" && file !== "" && date !=="") {
+        if (roll !== "" && eventName !== "" && file !== "" && date !== "") {
             //reference to events folder 
             const imgRef = ref(storage, `certificates/${new Date().getTime()} - ${file.name}`)
             try {
@@ -39,11 +40,14 @@ function UploadCertificates() {
                 setLoader(false);
                 setRoll("");
                 setEventName("");
+                toast.success("Uploaded successfully")
             } catch (error) {
+                setLoader(false);
+                toast.error("Something went wrong")
                 console.log(error);
             }
         } else {
-            alert("Enter Valid Inputs");
+            toast.error("Enter Valid Inputs")
         }
     }
     return (

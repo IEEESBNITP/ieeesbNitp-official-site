@@ -4,6 +4,7 @@ import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import { addDoc, collection, } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 function ListEvent() {
     const [loader, setLoader] = useState(false);
     const [name, setName] = useState("");
@@ -13,15 +14,15 @@ function ListEvent() {
     const navigate = useNavigate();
     const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
     useEffect(() => { // if admin is not logged-in then redirect to login page 
-      if (!(auth.currentUser && localAuth)) {
-        navigate('/login')
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (!(auth.currentUser && localAuth)) {
+            navigate('/login')
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
         if (name !== "" && desc !== "" && file !== "" && date !== "") {
-           //reference to events folder 
+            //reference to events folder 
             const imgRef = ref(storage, `events/${new Date().getTime()} - ${file.name}`)
             try {
                 setLoader(true);
@@ -41,11 +42,13 @@ function ListEvent() {
                 setName("");
                 setDesc("");
                 setDate("");
+                toast.success("Event Listed Successfully");
             } catch (error) {
                 console.log(error);
+                toast.error("Something Went Wrong")
             }
         } else {
-            alert("Enter Valid Inputs");
+            toast.error("Enter Valid Inputs")
         }
     }
 
@@ -73,7 +76,7 @@ function ListEvent() {
                                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
                                         <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                                     </div>
-                                    <input id="file" onChange={e => setFile(e.target.files[0])}  accept="image/*" type="file" className="hidden" />
+                                    <input id="file" onChange={e => setFile(e.target.files[0])} accept="image/*" type="file" className="hidden" />
                                 </label>
                             </div>
                         </div>
