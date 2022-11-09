@@ -22,6 +22,8 @@ import Error from './pages/Error/Error'
 import './App.css'
 import UploadPictures from "./pages/upload/UploadPictures";
 import Loader from "./pages/PageLoader/Loader";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // import PrivateComponent from "./Private/PrivateComp";
 
 function App() {
@@ -34,9 +36,9 @@ function App() {
 
     document.body.appendChild(script);
 
-    return () => {
-      document.body.removeChild(script);
-    }
+    // return () => {
+    //   document.body.removeChild(script);
+    // }
   }, []);
   if (loader) {
     return <Loader />
@@ -54,7 +56,7 @@ function App() {
         <Route path="/certificate-download" element={<DownloadCertificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
-        {/* <Route path="/events" element={<Events />} /> */}
+        <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/*" element={<Error />} />
@@ -69,6 +71,16 @@ function App() {
         
         {/* </Route> */}
       </Routes>
+      <ToastContainer position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light" />
       <Footer />
     </>
   );
