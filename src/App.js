@@ -56,7 +56,7 @@ function App() {
         <Route path="/certificate-download" element={<DownloadCertificates />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blogs" element={<Blogs />} />
-        {/* <Route path="/events" element={<Events />} /> */}
+        <Route path="/events" element={<Events />} />
         <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/*" element={<Error />} />
