@@ -19,9 +19,11 @@ function ContactUs() {
       )
       .then(
         (result) => {
+          toast.success("Sended Successfully")
           console.log(result.text);
         },
         (error) => {
+          toast.error("Something Went Wrong")
           console.log(error.text);
         }
       );
