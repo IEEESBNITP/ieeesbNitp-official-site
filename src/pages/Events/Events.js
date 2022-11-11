@@ -48,7 +48,7 @@ export const Events = () => {
     return <SimpleLoader />
   }
   return (
-    <VerticalTimeline>
+    <VerticalTimeline lineColor="#D97706">
       {events.map((item) => {
         return <EventElements key={item.id} data={item.data} id={item.id} />;
       })}
