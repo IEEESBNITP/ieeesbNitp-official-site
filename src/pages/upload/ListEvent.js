@@ -55,7 +55,7 @@ function ListEvent() {
     return (
         <>
             <div className="dark:bg-[#181F2A]">
-                <h1 className='text-xl text-center text-gray-50 font-serif py-5'>List New Upcoming Event</h1>
+                <h1 className='text-xl text-center dark:text-gray-50 text-gray-800 underline decoration-amber-600 font-serif py-5'>List New Upcoming Event</h1>
                 <div className='md:p-20 px-5 py-2'>
                     <form>
                         <div>
@@ -86,7 +86,7 @@ function ListEvent() {
                         </div>
                         <div>
                             <button
-                                className="mt-5 tailwind-btn w-full" onClick={handleSubmit} type="submit">
+                                className="mt-5 tailwind-btn w-full shadow" onClick={handleSubmit} type="submit">
                                 {!loader ? "List" : "Listing..."}
                             </button>
                         </div>
