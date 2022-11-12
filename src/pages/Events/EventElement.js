@@ -19,13 +19,13 @@ function EventElements({ data, id }) {
         <div className="flex">
 
           <div>
-            <h3 className="vertical-timeline-element-title">{data.name}</h3>
-            <p>
+            <h3 className="vertical-timeline-element-title font-medium text-gray-300">{data.name}</h3>
+            <p className="text-gray-400 text-sm">
               {result}...<Link className="hover:text-amber-600" to={`/events/${id}`}>Read more</Link>
             </p>
           </div>
           <div>
-            <img src={data?.imgPath} alt="poster" className="w-40" />
+            <img src={data?.imgPath} alt="poster" className="w-40" loading="lazy" />
           </div>
         </div>
       </VerticalTimelineElement>

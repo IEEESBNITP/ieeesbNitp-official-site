@@ -3,28 +3,37 @@ import BlogCard from "./BlogCard";
 import { db } from "../../Firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 import SimpleLoader from "../PageLoader/SimpleLoader";
-import { FirebaseError } from "firebase/app";
-// cd ieeesbNitp-official-site
 function Blogs() {
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
   const keys = ["title", "description", "date"];
   const [loading, setLoading] = useState(false);
   const [blog, setBlog] = useState([]);
   const fetchBlog = async () => {
     try {
       // Get reference
-      setLoading(false);
-      FirebaseError.db().ref('blogRecords/').on("value",snapshot => {
-        let event = [];
-        snapshot.foreach( snap => {
-          event.push(snap.val());
-        });
-        this.setBlog({event:event});
-      });
+      setLoading(true)
+      const eventRef = collection(db, 'blogs')
 
+      // Create a query
+      const q = query(
+        eventRef,
+      )
+      // Execute query
+      const querySnap = await getDocs(q)
 
-      setLoading(false);
+      // const lastVisible = querySnap.docs[querySnap.docs.length - 1]
+      const blog = []
+
+      querySnap.forEach((doc) => {
+        return blog.push({
+          id: doc.id,
+          data: doc.data(),
+        })
+      })
+      setBlog(blog);
+      setLoading(false)
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
@@ -32,7 +41,7 @@ function Blogs() {
   useEffect(() => {
     fetchBlog();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  });
+  }, []);
   if (loading) {
     // return <PageLoader/>
     return <SimpleLoader />;
@@ -54,7 +63,7 @@ function Blogs() {
             className="px-6 py-2 text-gray-700 w-150 h-12 rounded border cursor-pointer placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
             type="search"
             placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value)}
+          // onChange={(e) => setQuery(e.target.value)}
           />
         </form>
 

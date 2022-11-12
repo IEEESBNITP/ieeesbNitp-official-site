@@ -7,11 +7,11 @@ function Navbar() {
     const localAuth = localStorage.getItem('ieee-auth');
     return (
         <>
-            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-gray-900 font-serif shadow-lg dark:shadow-sm">
+            <nav className="flex flex-wrap items-center justify-between w-full py-4 md:py-0 px-4 text-lg text-gray-700 bg-white dark:bg-slate-900 font-serif shadow-lg dark:shadow-sm">
                 <div>
                     <Link to="/">
-                        <img src="ieeeLogo.png" alt="Logo" className='w-20 h-10' loading='lazy' />
-                        {/* <img src="ieeeLogoBlack.png" alt="" className='w-20 dark:hidden light:hidden' /> */}
+                        <img src="ieeeLogo.png" alt="Logo" className='w-20 h-10 light-hide' loading='lazy' />
+                        <img src="ieeeLogoBlack.png" alt="" className='w-20 h-10 dark-hide ' loading='lazy' />
                     </Link>
                 </div>
                 <svg
@@ -19,7 +19,7 @@ function Navbar() {
                     id="menu-button"
                     className="h-6 w-6 cursor-pointer md:hidden block"
                     fill="none"
-                    viewBox="0 0 24 24"
+                    viewBox="0 0 24 24" 
                     stroke="currentColor"
                 >
                     <path
@@ -45,6 +45,9 @@ function Navbar() {
                         </li>
                         <li>
                             <Link className="md:p-4 py-2 block hover:text-amber-600" to="/about">About</Link>
+                        </li>
+                        <li>
+                            <Link className="md:p-4 py-2 block hover:text-amber-600" to="/gallery">Gallery</Link>
                         </li>
                         <li>
                             <a href="https://www.ieee.org/membership/join/index.html" target={"_blank"} rel="noreferrer" className="md:p-4 py-2 block hover:text-amber-600">Join IEEE</a>

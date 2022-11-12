@@ -2,7 +2,9 @@ import React from 'react'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 import JoinIEEE from './JoinIEEE'
 import Updates from './Updates'
+import { Typewriter } from 'react-simple-typewriter'
 function Home() {
+  const words=['IEEE SB NIT PATNA']
   return (
     <>
       <div className='dark:bg-[#181F2A] bg-gray-100 text-gray-900'>
@@ -12,7 +14,9 @@ function Home() {
             <video autoPlay loop muted>
               <source src="Computer.mp4" type="video/mp4" />
             </video>
-            <h1 className='lg:text-6xl text-xl text-gray-300 font-serif font-medium absolute lg:top-1/2'>IEEE SB NIT PATNA</h1>
+            <h1 className='lg:text-6xl text-xl text-gray-300 font-serif font-medium absolute lg:top-1/2'>
+              <Typewriter words={words} cursor={true} cursorColor="#D97706"  />
+            </h1>
           </div>
         </div>
         <div className='mt-10 lg:mt-60 lg:ml-52'>

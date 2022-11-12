@@ -1,54 +1,62 @@
-import React from "react";
+import { addDoc, collection } from "firebase/firestore";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { auth, db } from "../../Firebase";
+import SimpleLoader from "../PageLoader/SimpleLoader";
 
 function ListBlog() {
+  const [loader, setLoader] = useState(false);
   const [blog, setBlog] = useState({
     title: "",
     desc: "",
     date: "",
     link: "",
   });
-
-  let name, value;
+  const navigate = useNavigate();
+  const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
+  useEffect(() => {
+    if (!(auth.currentUser && localAuth)) {
+      navigate('/login')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const handleInputs = (e) => {
+    let name, value;
     name = e.target.name;
     value = e.target.value;
     setBlog({ ...blog, [name]: value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoader(true);
     const { title, desc, date, link } = blog;
     if (title !== "" && desc !== "" && link !== "" && date !== "") {
-      const res = fetch(
-        
-        "https://ieee-demo-web-default-rtdb.firebaseio.com/blogRecords.json",
-        
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            title,
-            desc,
-            date,
-            link,
-          }),
-        }
-      );
-      if (res) {
-        alert("Data stored");
+      try {
+        await addDoc(collection(db, 'blogs'), {
+          title: title,
+          desc: desc,
+          date: date,
+          link: link,
+        });
+        setLoader(false);
         setBlog({
+          ...blog,
           title: "",
           desc: "",
           date: "",
           link: "",
-        });
-      } else {
-        alert("Please fill the data");
+        })
+        toast.success("Blog Listed Successfully");
+      } catch (error) {
+        setLoader(false)
+        console.log(error);
+        toast.error("Something Went Wrong")
       }
     } else {
-      console("Please fill the data");
+      setLoader(false)
+      console.log("Please fill the data");
     }
   };
 
@@ -136,7 +144,7 @@ function ListBlog() {
                 onClick={handleSubmit}
                 type="submit"
               >
-                List Blog
+                {loader ? <SimpleLoader /> : "List Blog"}
               </button>
             </div>
           </form>
