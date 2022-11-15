@@ -3,7 +3,6 @@ import { BsArrowRightCircleFill } from 'react-icons/bs'
 import JoinIEEE from './JoinIEEE'
 import Updates from './Updates'
 import { Typewriter } from 'react-simple-typewriter'
-import Carousel from './Carousel'
 import Video from './Video'
 function Home() {
   const words = ['IEEE SB NIT PATNA']
