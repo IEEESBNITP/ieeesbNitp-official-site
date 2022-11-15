@@ -3,8 +3,10 @@ import { BsArrowRightCircleFill } from 'react-icons/bs'
 import JoinIEEE from './JoinIEEE'
 import Updates from './Updates'
 import { Typewriter } from 'react-simple-typewriter'
+import Carousel from './Carousel'
+import Video from './Video'
 function Home() {
-  const words=['IEEE SB NIT PATNA']
+  const words = ['IEEE SB NIT PATNA']
   return (
     <>
       <div className='dark:bg-[#181F2A] bg-gray-100 text-gray-900'>
@@ -15,7 +17,7 @@ function Home() {
               <source src="Computer.mp4" type="video/mp4" />
             </video>
             <h1 className='lg:text-6xl text-xl text-gray-300 font-serif font-medium absolute lg:top-1/2'>
-              <Typewriter words={words} cursor={true} cursorColor="#D97706"  />
+              <Typewriter words={words} cursor={true} cursorColor="#D97706" />
             </h1>
           </div>
         </div>
@@ -68,11 +70,15 @@ function Home() {
           </div>
         </div>
         <div className=''>
+          {/* Video */}
+          <Video />
           {/* Join ieee component */}
           <JoinIEEE />
         </div>
         {/* Updates Component which render last  3 events  */}
         <Updates />
+
+        {/* <Carousel /> */}
 
       </div>
     </>
