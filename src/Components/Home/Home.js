@@ -4,6 +4,7 @@ import JoinIEEE from './JoinIEEE'
 import Updates from './Updates'
 import { Typewriter } from 'react-simple-typewriter'
 import Video from './Video'
+import CarouselComp from './CarouselComp'
 function Home() {
   const words = ['IEEE SB NIT PATNA']
   return (
@@ -21,7 +22,7 @@ function Home() {
           </div>
         </div>
         <div className='mt-10 lg:mt-60 lg:ml-52'>
-          <div className="grid lg:grid-cols-2 text-gray-900 dark:text-gray-400">
+          <div className="grid md:grid-cols-2 text-gray-900 dark:text-gray-400">
 
             <div className="card md:w-96 m-1">
               <figure><img src="people.png" className='w-full' alt="Work Together" loading='lazy' /></figure>
@@ -75,9 +76,8 @@ function Home() {
           <JoinIEEE />
         </div>
         {/* Updates Component which render last  3 events  */}
-        <Updates />
-
-        {/* <Carousel /> */}
+        {/* <Updates /> */}
+        <CarouselComp />
 
       </div>
     </>
