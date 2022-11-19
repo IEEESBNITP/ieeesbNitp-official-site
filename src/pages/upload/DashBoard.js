@@ -68,7 +68,7 @@ function DashBoard() {
                 </Link>
               </div>
               <div className="">
-                <button className='tailwind-btn h-24 col-span-1 shadow w-full font-serif' onClick={handleLogout}>Logout Admin</button>
+                <button className='tailwind-btn h-24 col-span-1 w-full font-serif' onClick={handleLogout}>Logout Admin</button>
               </div>
               <div className="h-24 col-span-1 bg-amber-600 border border-amber-300"></div>
               <div className="h-24 col-span-2 bg-amber-600 border border-amber-300"></div>

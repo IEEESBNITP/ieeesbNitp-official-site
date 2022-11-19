@@ -8,7 +8,7 @@ function AboutUs() {
                     <h1 className='text-center text-lg mx-5 font-serif'>SOURCE OF INSPIRATION</h1>
                     <div className='text-center'>
                         <div className='hero container max-w-screen-lg mx-auto flex justify-center'>
-                            <img src="director.jpg" className='rounded-full w-1/5 ring-1 ring-amber-600' alt="Director-img" loading='lazy' />
+                            <img src="director.jpg" className='rounded-full w-2/3 md:w-1/5 ring-1 ring-amber-600' alt="Director-img" loading='lazy' />
                         </div>
                         <span className='mx-1 text-sm font-thin text-amber-600'>Prof. PRADIP KUMAR JAIN</span>
                     </div>
@@ -30,7 +30,7 @@ function AboutUs() {
                 </div>
                 <div className='m-2 rounded-md shadow-xl hover:shadow-2xl'>
                     <div className='flex py-1'>
-                        <h1 className='font-serif m-2 text-2xl text-amber-600'>IEEE SB NIT PATNA</h1>
+                        <h1 className='font-serif m-2 text-2xl text-amber-600'>IEEE SB NITP</h1>
                         <div className='hero container max-w-screen-lg mx-auto flex justify-end'>
                             <img src="nitplogo.png" className='h-14' alt="nit-logo" loading='lazy' />
                         </div>

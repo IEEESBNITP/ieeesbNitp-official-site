@@ -10,7 +10,7 @@ import { FiEdit } from "react-icons/fi";
 import { AiFillDelete } from "react-icons/ai";
 import SimpleLoader from "../PageLoader/SimpleLoader";
 
-const BlogCard = ({  data, id, fetchBlog } ) => {
+const BlogCard = ({ data, id, fetchBlog }) => {
   const [file, setFile] = useState();
   const [loader, setLoader] = useState(false);
   const [blog, setBlog] = useState({
@@ -22,14 +22,14 @@ const BlogCard = ({  data, id, fetchBlog } ) => {
   const [showModal, setShowModal] = useState(false);
   //const year = parseInt(data.year);  //@important converting the year string into number
   const localAuth = JSON.parse(localStorage.getItem("ieee-auth"));
+  //function for delete 
   const deleteBlog = async (id) => {
     //function for delete the blog and their details as well. OP
     try {
       const yes = window.confirm("Confirm Do you want to delete?");
       if (yes) {
         setLoader(true);
-        await deleteObject(ref(storage, data.forDeletePath)); //deleting the image of member // data.imgPath
-        await deleteDoc(doc(db, id)); //deleting the data of member
+        await deleteDoc(doc(db, 'blogs', id)); //deleting the data of member
         setLoader(false);
         fetchBlog(); // calling fetchCommittee so that changes can render or reflect automatically
       }
@@ -58,7 +58,7 @@ const BlogCard = ({  data, id, fetchBlog } ) => {
         if (file) {
           // if file is true then we have to change the profile-img also but first of all delete the previous one
           setLoader(true);
-          
+
           const docRef = doc(db, 'blogRecords', id); // parseInt convert the string into int so we can add +1
           await updateDoc(docRef, {
             title,
@@ -85,11 +85,10 @@ const BlogCard = ({  data, id, fetchBlog } ) => {
       console.log(error);
     }
   };
-
   return (
     <>
       <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border-2 cursor-pointer rounded-xl border-amber-500 hover:border-transparent group  hover:shadow-xl dark:border-gray-700 dark:hover:border-transparent">
-        {auth.currentUser && localAuth ? (
+        {(auth.currentUser && localAuth) ? (
           <>
             <button>
               <FiEdit
@@ -116,7 +115,7 @@ const BlogCard = ({  data, id, fetchBlog } ) => {
         <div>
           <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
             {data.desc}
-            <a>
+            <a href={data?.link} target="_blank" rel="noreferrer">
               <button className="font-medium rounded-lg text-amber-500 ">
                 Read More
               </button>

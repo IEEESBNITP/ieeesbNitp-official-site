@@ -6,13 +6,9 @@ function DownloadCertificates() {
     const [loader, setLoader] = useState(false);
     const [roll, setRoll] = useState('');
     const [certificate, setCertificates] = useState([]);
-    
+
     const searchCertificate = async (e) => {
         e.preventDefault()
-        if(roll.length>7 || roll.length<7){
-            alert("Input correct Value"); 
-            setRoll('');
-        }
         setLoader(true);
         const ref = collection(db, "certificates");
         const q = query(ref, where("roll", "==", roll));
@@ -35,8 +31,7 @@ function DownloadCertificates() {
                     <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-900">
                         <div className="px-6 py-6 md:px-8 md:py-0">
                             <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-600 md:text-amber-600">Event</span> Certificates</h2>
-
-                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate if you ever won the any event an prize/position with your roll number</p>
+                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate through your roll number if you ever won any event</p>
                         </div>
                     </div>
 

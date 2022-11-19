@@ -4,8 +4,8 @@ function ImageCard({data}) {
     console.log("item", data)
     return (
         <>
-            <div className="rounded overflow-hidden ">
-                <img className="w-full" src={data} alt="Mountain" />
+            <div className="rounded overflow-hidden">
+                <img className="w-full" src={data} alt="gallery" loading='lazy' />
                 {/* <div className="px-6 py-4">
                     <div className="font-bold text-xl mb-2">Impulse</div>
                     <p className="text-gray-700 text-base">

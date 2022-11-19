@@ -4,8 +4,8 @@ import { db } from "../../Firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 import SimpleLoader from "../PageLoader/SimpleLoader";
 function Blogs() {
-  // const [query, setQuery] = useState("");
-  const keys = ["title", "description", "date"];
+  const [search, setSearch] = useState("");
+  // const keys = ["title", "description", "date"];
   const [loading, setLoading] = useState(false);
   const [blog, setBlog] = useState([]);
   const fetchBlog = async () => {
@@ -44,9 +44,13 @@ function Blogs() {
   }, []);
   if (loading) {
     // return <PageLoader/>
-    return <SimpleLoader />;
+    return (
+      <>
+        <div className="mt-20">
+          <SimpleLoader />;
+        </div>
+      </>)
   }
-
   //we can use firebase function to search
 
   // const search = (data) => {
@@ -63,7 +67,7 @@ function Blogs() {
             className="px-6 py-2 text-gray-700 w-150 h-12 rounded border cursor-pointer placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent"
             type="search"
             placeholder="Search..."
-          // onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </form>
 
