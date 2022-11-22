@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { auth, db, storage } from '../../Firebase';
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
-import { addDoc, collection, } from "firebase/firestore";
+import { addDoc, collection, serverTimestamp} from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import SimpleLoader from '../PageLoader/SimpleLoader';
 function UploadExcom() {
     const [loader, setLoader] = useState(false);
     const [file, setFile] = useState();
@@ -55,6 +56,7 @@ function UploadExcom() {
                     linkedin: linkedin,
                     imgPath: file ? url : null,
                     forDeletePath: file ? snap.ref.fullPath : null,
+                    timeStamp:serverTimestamp()
 
                 });
                 setLoader(false);
@@ -138,7 +140,7 @@ function UploadExcom() {
                                 </div>
                             </div>
                             <div className='my-1'>
-                                <button className="tailwind-btn" type='submit' onClick={handleSubmit}>{loader ? "Upload" : "Submit"}</button>
+                                <button className="tailwind-btn" type='submit' onClick={handleSubmit}>{loader ? <SimpleLoader/> : "Upload"}</button>
                             </div>
                         </div>
                     </form>
