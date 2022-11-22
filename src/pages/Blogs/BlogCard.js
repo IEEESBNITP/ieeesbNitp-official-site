@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { auth, storage, db } from "../../Firebase";
+import { auth, db } from "../../Firebase";
 import { GiCrossedSabres } from "react-icons/gi";
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
-import {
-  ref,
-  deleteObject,
-} from "firebase/storage";
 import { FiEdit } from "react-icons/fi";
 import { AiFillDelete } from "react-icons/ai";
 import SimpleLoader from "../PageLoader/SimpleLoader";
