@@ -1,18 +1,17 @@
 import React, { useState } from 'react'
 import { GiCrossedSabres } from "react-icons/gi"
 import SimpleLoader from '../PageLoader/SimpleLoader';
-import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes, deleteObject } from 'firebase/storage';
-import { auth, storage, db } from '../../Firebase';
+import { storage, db } from '../../Firebase';
 function Modal({ eventData, setShowModal, fetchEvent, id }) {
-    console.log(eventData.forDeletePath);
+    // console.log(eventData.forDeletePath);
     const [file, setFile] = useState();
     const [loader, setLoader] = useState(false);
     const [modalData, setModalData] = useState({
         name: eventData?.name,
         desc: eventData?.desc,
         date: eventData?.date,
-
     });
     const handleInputs = (e) => {
         let name, value;
@@ -55,7 +54,6 @@ function Modal({ eventData, setShowModal, fetchEvent, id }) {
         }
 
     }
-    //destructuring 
     return (
         <>
             <div className=' overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full'>
