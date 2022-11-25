@@ -4,6 +4,7 @@ import { db } from '../../Firebase'
 import {
     collection,
     getDocs,
+    orderBy,
     query,
     // orderBy,
     // limit,
@@ -23,7 +24,8 @@ function Committee() {
             // Create a query
             const q = query(
                 eventRef,
-                // orderBy('date', 'desc'), // we can prioritize the things later 
+                orderBy('timeStamp'), /*here you can say fcfs is working first come first 
+                 serve things are automatically orderyBy ascending order no need of mention ascending descending */
                 // limit(3)
             )
             // Execute query
