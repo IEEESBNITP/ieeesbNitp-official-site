@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { auth, storage ,db } from '../../Firebase';
+import { auth, storage, db } from '../../Firebase';
 import { GiCrossedSabres } from 'react-icons/gi';
 import { doc, deleteDoc, updateDoc } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytes, deleteObject } from 'firebase/storage';
@@ -86,17 +86,17 @@ function ProfileCard({ data, id, fetchCommittee }) {
     return (
         <>
             <div className="flex flex-col items-center p-8 transition-colors duration-300 transform border-2 cursor-pointer rounded-xl border-amber-500 hover:border-transparent group  hover:shadow-xl dark:border-gray-700 dark:hover:border-transparent">
-                {(auth.currentUser && localAuth) ? (<>
+                {(auth?.currentUser && localAuth) ? (<>
                     <button><FiEdit className='absolute top-2 right-2 text-xl hover:text-amber-600' onClick={editDetails} /></button>
                     <button><AiFillDelete className='absolute top-2 right-8 text-xl hover:text-amber-600' onClick={e => deleteMember(id)} /></button>
                 </>) : null}
                 <img className="object-cover w-36 h-36 rounded-full ring-2 ring-amber-600 " src={data.imgPath} alt="profile-img" loading="lazy" />
 
-                <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white group-hover:text-gray-500">{data.name}</h1>
+                <h1 className="mt-4 text-xl text-center font-semibold text-gray-700 capitalize dark:text-white group-hover:text-gray-500">{data.name}</h1>
 
-                <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">{data.position}</p>
+                <p className="mt-2 text-base text-center text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">{data.position}</p>
 
-                <div className="flex mt-3 -mx-2">
+                <div className="flex mt-3">
                     <a href={data.linkedin} target="_blank" rel='noreferrer' className="mx-2 text-gray-600 dark:text-gray-300 hover:text-amber-500 dark:hover:text-gray-300 group-hover:text-amber-600" aria-label="Reddit">
                         <FaLinkedin className='text-xl' />
                     </a>
