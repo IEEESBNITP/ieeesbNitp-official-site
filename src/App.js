@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import './App.css'
+import { useEffect} from "react";
 import { Route, Routes } from "react-router-dom"
 import Navbar from './Components/NavBar/Navbar'
 import Home from './Components/Home/Home'
@@ -19,30 +20,22 @@ import DownloadCertificates from "./pages/certificates/DownloadCertificates";
 import EventsDetails from "./pages/Events/EventsDetails";
 import UploadExcom from "./pages/upload/UploadExcom";
 import Error from './pages/Error/Error'
-import './App.css'
 import UploadPictures from "./pages/upload/UploadPictures";
-import Loader from "./pages/PageLoader/Loader";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import PrivateComponent from "./Private/PrivateComp";
+import PrivateComponent from "./Private/PrivateComp";
 
 function App() {
-  const [loader, setLoader] = useState(false);
   useEffect(() => {
     //for running the script to toggle the the navbar
     const script = document.createElement('script');
     script.src = "script.js";
     script.async = true;
-
     document.body.appendChild(script);
-
-    // return () => {
-    //   document.body.removeChild(script);
-    // }
+    return () => {
+      document.body.removeChild(script);
+    }
   }, []);
-  if (loader) {
-    return <Loader />
-  }
   return (
     <>
       <div className="cursor"></div>
@@ -60,16 +53,15 @@ function App() {
         <Route path="/events/:id" element={<EventsDetails />} />
         <Route path="/membership" element={<Membership />} />
         <Route path="/*" element={<Error />} />
-        {/* <Route element={<PrivateComponent/>}> */}
-        {/* @todo ->> if admin is not login then following routes can't be access it will redirect to login page */}
-        <Route path="/dashboard" element={<DashBoard />} />
-        <Route path="/list-event" element={<ListEvent />} />
-        <Route path="/upload-certificate" element={<UploadCertificates />} />
-        <Route path="/add-excom" element={<UploadExcom />} />
-        <Route path="/upload-gallery" element={<UploadPictures />} />
-        <Route path="/add-blog" element={<ListBlog />} />
-        
-        {/* </Route> */}
+        <Route element={<PrivateComponent />}>
+          {/* @todo ->> if admin is not login then following routes can't be access it will redirect to login page */}
+          <Route path="/dashboard" element={<DashBoard />} />
+          <Route path="/list-event" element={<ListEvent />} />
+          <Route path="/upload-certificate" element={<UploadCertificates />} />
+          <Route path="/add-excom" element={<UploadExcom />} />
+          <Route path="/upload-gallery" element={<UploadPictures />} />
+          <Route path="/add-blog" element={<ListBlog />} />
+        </Route>
       </Routes>
       <ToastContainer position="top-right"
         autoClose={5000}
