@@ -7,7 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 import SimpleLoader from "../PageLoader/SimpleLoader";
 
 const BlogCard = ({ data, id, fetchBlog }) => {
-  const [file, setFile] = useState();
+  // const [file, setFile] = useState();
   const [loader, setLoader] = useState(false);
   const [blog, setBlog] = useState({
     title: data?.title,
@@ -35,7 +35,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
     }
   };
   const editDetails = () => {
-    // show and hid details/modal
+    // show and hide details/modal
     setShowModal(!showModal);
   };
   const handleInputs = (e) => {
@@ -51,31 +51,15 @@ const BlogCard = ({ data, id, fetchBlog }) => {
     try {
       const yes = window.confirm("Confirm do you want to update?"); //confirmation
       if (yes) {
-        if (file) {
-          // if file is true then we have to change the profile-img also but first of all delete the previous one
-          setLoader(true);
-
-          const docRef = doc(db, 'blogRecords', id); // parseInt convert the string into int so we can add +1
-          await updateDoc(docRef, {
-            title,
-            desc,
-            date,
-            link,
-          }); // updating the doc
-          setShowModal(false);
-          setFile();
-          setLoader(false);
-          fetchBlog(); // calling fetchCommittee so that changes can render or reflect automatically
-        } else {
-          setLoader(true);
-          const docRef = doc(db, id); // parseInt convert the string into int so we can add +1
-          await updateDoc(docRef, { title, desc, date, link }); // updating the doc
-          setShowModal(false);
-          setFile();
-          setLoader(false);
-          fetchBlog(); // calling fetchBlog so that changes can render or reflect automatically
-        }
+        setLoader(true);
+        const docRef = doc(db, "blogs", id);
+        await updateDoc(docRef, { title, desc, date, link }); // updating the doc
+        setShowModal(false);
+        setLoader(false);
+        editDetails();
+        fetchBlog(); // calling fetchBlog so that changes can render or reflect automatically
       }
+
     } catch (error) {
       setLoader(false);
       console.log(error);
@@ -102,17 +86,17 @@ const BlogCard = ({ data, id, fetchBlog }) => {
         ) : null}
 
         <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
-          {data.date}
+          {data?.date}
         </p>
 
-        <h1 className="mt-4 text-2xl font-semibold text-amber-600 capitalize">
-          {data.title}
+        <h1 className="mt-4 text-lg text-center font-medium text-amber-500 capitalize">
+          {data?.title?.substring(0, 30) + "..."}
         </h1>
         <div>
           <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
-            {data.desc}
+            {data?.desc?.substring(0, 50) + "..."}
             <a href={data?.link} target="_blank" rel="noreferrer">
-              <button className="font-medium rounded-lg text-amber-500 ">
+              <button className="font-serif rounded-lg text-amber-600 hover:underline ">
                 Read More
               </button>
             </a>
@@ -129,7 +113,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
                 <form>
                   <div className="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                      {data.title}
+                      {data?.title}
                     </h3>
                     <button
                       type="button"
@@ -155,7 +139,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
                         name="title"
                         id="title"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value={blog.title}
+                        value={blog?.title}
                         onChange={handleInputs}
                       />
                     </div>
@@ -171,7 +155,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
                         name="desc"
                         id="desc"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value={blog.desc}
+                        value={blog?.desc}
                         onChange={handleInputs}
                       />
                     </div>
@@ -187,7 +171,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
                         name="date"
                         id="date"
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        value={blog.date}
+                        value={blog?.date}
                         onChange={handleInputs}
                       />
                     </div>

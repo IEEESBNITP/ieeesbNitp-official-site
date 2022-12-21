@@ -32,7 +32,7 @@ function ListBlog() {
     e.preventDefault();
     setLoader(true);
     const { title, desc, date, link } = blog;
-    if (title !== "" && desc !== "" && link !== "" && date !== "") {
+    if (title !== "" && link !== "") {
       try {
         await addDoc(collection(db, 'blogs'), {
           title: title,
