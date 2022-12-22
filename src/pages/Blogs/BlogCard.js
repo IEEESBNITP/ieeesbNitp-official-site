@@ -7,7 +7,7 @@ import { AiFillDelete } from "react-icons/ai";
 import SimpleLoader from "../PageLoader/SimpleLoader";
 
 const BlogCard = ({ data, id, fetchBlog }) => {
-  // const [file, setFile] = useState();
+
   const [loader, setLoader] = useState(false);
   const [blog, setBlog] = useState({
     title: data?.title,
@@ -16,9 +16,8 @@ const BlogCard = ({ data, id, fetchBlog }) => {
     link: data?.link,
   });
   const [showModal, setShowModal] = useState(false);
-  //const year = parseInt(data.year);  //@important converting the year string into number
   const localAuth = JSON.parse(localStorage.getItem("ieee-auth"));
-  //function for delete 
+  //function for delete the blog
   const deleteBlog = async (id) => {
     //function for delete the blog and their details as well. OP
     try {
@@ -34,6 +33,7 @@ const BlogCard = ({ data, id, fetchBlog }) => {
       console.log(error);
     }
   };
+
   const editDetails = () => {
     // show and hide details/modal
     setShowModal(!showModal);
@@ -84,23 +84,19 @@ const BlogCard = ({ data, id, fetchBlog }) => {
             </button>
           </>
         ) : null}
-
-        <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
-          {data?.date}
-        </p>
-
-        <h1 className="mt-4 text-lg text-center font-medium text-amber-500 capitalize">
-          {data?.title?.substring(0, 30) + "..."}
-        </h1>
         <div>
-          <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
-            {data?.desc?.substring(0, 50) + "..."}
-            <a href={data?.link} target="_blank" rel="noreferrer">
-              <button className="font-serif rounded-lg text-amber-600 hover:underline ">
-                Read More
-              </button>
-            </a>
-          </p>
+          <p className=" text-gray-500 font-mono dark:text-gray-300 group-hover:text-gray-400">{data?.date}</p>
+          <h1 className="mt-2.5 text-lg text-center font-medium text-amber-500 capitalize">{data?.title?.substring(0, 30) + "..."}</h1>
+          <div>
+            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300 group-hover:text-gray-400">
+              {data?.desc?.substring(0, 50) + "..."}
+              <a href={data?.link} target="_blank" rel="noreferrer">
+                <span className="font-serif rounded-lg text-amber-600 hover:underline ">
+                  Read More
+                </span>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
       {showModal ? (
