@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 import { db } from "../../Firebase";
-import { collection, getDocs, query, onSnapshot ,orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
 import SimpleLoader from "../PageLoader/SimpleLoader";
 function Blogs() {
-  const [search, setSearch] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(false);
   const [blog, setBlog] = useState([]);
+  const [noOfBlogs, setNoOfBlogs] = useState(8)
   const fetchBlog = async () => {
     try {
       // Get reference
@@ -17,6 +18,7 @@ function Blogs() {
       const q = query(
         eventRef,
         orderBy('date', 'desc'),
+        limit(parseInt(noOfBlogs))
       )
       // Execute query
       const querySnap = await getDocs(q)
@@ -40,34 +42,56 @@ function Blogs() {
     fetchBlog();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  //function to fetch 4 more blogs everyTime 
+  const fetchMoreBlogs = async () => {
+    try {
+      // Get reference
+      const eventRef = collection(db, 'blogs')
 
-  const searchBlogs = (e) => {
+      // Create a query
+      const q = query(
+        eventRef,
+        orderBy('date', 'desc'),
+        limit(parseInt(noOfBlogs) + 4)
+      )
+      // Execute query
+      const querySnap = await getDocs(q)
+      const blog = []
+      querySnap.forEach((doc) => {
+        return blog.push({
+          id: doc.id,
+          data: doc.data(),
+        })
+      })
+      setBlog(blog);
+      setLoading(false)
+      setNoOfBlogs(parseInt(noOfBlogs) + 4)
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  }
+  const searchBlogs = async (e) => {
     e.preventDefault()
     setLoading(true)
     const usersRef = collection(db, "blogs");
     // create query object
     const q = query(usersRef);
     // execute query
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      const blog = []
-      querySnapshot.forEach((doc) => {
-        blog.push(doc.data());
-      })
-      const filterData = blog.filter((value) => {
-        return (value.title.toLowerCase().includes(search.toLowerCase()) || value.desc.toLowerCase().includes(search.toLowerCase()))
-      })
-      const searchedBlog = [];
-      filterData.forEach((doc) => {
-        return blog.push({
-          id: doc.id,
-          data: doc.data,
-        })
-      })
-      setLoading(false);
-      setBlog(searchedBlog);
-      console.log(filterData)
-    });
-    return () => unsub();
+    const blogDocs = await getDocs(q);
+    const blog = []
+    blogDocs.forEach((doc) => {
+      blog.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    })
+    const filterData = blog.filter((value) => {
+      return (value.data.title.toLowerCase().includes(searchText.toLowerCase()) || value.data.desc.toLowerCase().includes(searchText.toLowerCase()) ||value.data.date.toLowerCase().includes(searchText.toLowerCase()))
+    })
+    setLoading(false);
+    setSearchText("")
+    setBlog(filterData);
   }
   if (loading) {
     return (
@@ -81,15 +105,22 @@ function Blogs() {
     <>
       <section className="px-6 py-6 justify-center bg-white dark:bg-[#181F2A]">
         <div>
-          {/* <form className="w-max mx-auto">
-            <input
-              className=" hover:text-amber-600 md:hover:bg-transparent md:border dark:text-amber-500 md:hover:text-amber-500 dark:hover:text-amber md:dark:hover:bg-transparent md:text-amber-500 font-serif md:bg-amber-600 md:bg-opacity-20 text-amber-500 border-amber-500 placeholder:text-amber-500 md:hover:bg-opacity-10 rounded-l px-4 h-12"
-              type="text"
-              placeholder="Search..."
-              onChange={(e) => setSearch(e.target.value)}
-            />
-            <button className=" hover:text-amber-600 md:hover:bg-transparent md:border dark:text-amber-500 md:hover:text-amber-500 dark:hover:text-amber md:dark:hover:bg-transparent md:text-amber-500 font-serif md:bg-amber-600 md:bg-opacity-20 border-amber-500 md:hover:bg-opacity-10 rounded-r px-4 h-12" onClick={searchBlogs}>Search</button>
-          </form> */}
+          <form onSubmit={searchBlogs}>
+            <div className="from-control">
+              <div className="relative md:w-1/2">
+                <input
+                  type="text"
+                  className="w-full  pr-40 bg-gray-200 input text-black border-amber-500"
+                  placeholder="Search"
+                  value={searchText}
+                  onChange={e => setSearchText(e.target.value)}
+                />
+                <button className="absolute top-0 right-0 rounded-l-none w-36 btn border-amber-500 ">
+                  Go
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
         <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
           {blog.map((item) => {
@@ -102,6 +133,9 @@ function Blogs() {
               />
             )
           })}
+        </div>
+        <div className="px-1 py-2.5">
+          <button className="rounded-l w-36 btn border-amber-500 text-amber-500" onClick={fetchMoreBlogs}>LoadMore</button>
         </div>
       </section>
     </>
