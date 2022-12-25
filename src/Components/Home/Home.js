@@ -1,7 +1,6 @@
 import React from 'react'
 import { BsArrowRightCircleFill } from 'react-icons/bs'
 import JoinIEEE from './JoinIEEE'
-import Updates from './Updates'
 import { Typewriter } from 'react-simple-typewriter'
 import Video from './Video'
 import CarouselComp from './CarouselComp'
@@ -10,8 +9,7 @@ function Home() {
   return (
     <>
       <div className='dark:bg-[#181F2A] bg-gray-100 text-gray-900'>
-        <div className=''>
-
+        <div>
           <div className='grid lg:h-screen place-items-center'>
             <video autoPlay loop muted>
               <source src="Computer.mp4" type="video/mp4" />
@@ -23,13 +21,11 @@ function Home() {
         </div>
         <div className='mt-10 lg:mt-60 lg:ml-52'>
           <div className="grid md:grid-cols-2 text-gray-900 dark:text-gray-400">
-
             <div className="card md:w-96 m-1">
               <figure><img src="people.png" className='w-full' alt="Work Together" loading='lazy' /></figure>
               <div className="card-body">
                 <h2 className="text-center font-medium text-2xl text-amber-600">Work Together!</h2>
                 <p className='text-center font-extralight'>Talent wins games, but teamwork and intelligence win championships.</p>
-
               </div>
             </div>
             <div className="card md:w-96  m-1">
@@ -44,7 +40,6 @@ function Home() {
               <div className="card-body">
                 <h2 className="text-center font-medium text-2xl text-amber-600">Think High</h2>
                 <p className='text-center font-extralight'>Your comfort zone is a place where you keep yourself in a self-illusion and nothing can grow there but your potentiality can grow only when you can think and grow out of that zone.</p>
-
               </div>
             </div>
             <div className="card md:w-96 m-1 mt-20">
@@ -52,10 +47,8 @@ function Home() {
               <div className="card-body">
                 <h2 className="text-center font-medium text-2xl text-amber-600">Keep Learning</h2>
                 <p className='text-center font-extralight'>Mind is a fertile land and the crop depends on what you sow and how you nurture</p>
-
               </div>
             </div>
-
           </div>
         </div>
         <div className='lg:flex py-14'>
@@ -70,15 +63,13 @@ function Home() {
           </div>
         </div>
         <div className=''>
-          {/* Video */}
+          {/* IEEE Video running on landing page */}
           <Video />
           {/* Join ieee component */}
           <JoinIEEE />
         </div>
         {/* Updates Component which render last  3 events  */}
-        {/* <Updates /> */}
         <CarouselComp />
-
       </div>
     </>
   )
