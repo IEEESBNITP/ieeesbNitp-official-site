@@ -4,7 +4,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import { BsPen } from 'react-icons/bs'
-function EventElements({ data, id }) {
+function EventElements({ data, id}) {
   let result = data.desc.slice(0, 100);
   return (
     <>
@@ -17,15 +17,16 @@ function EventElements({ data, id }) {
         icon={<BsPen />}
       >
         <div className="flex">
-
           <div>
-            <h3 className="vertical-timeline-element-title font-medium text-gray-300">{data.name}</h3>
-            <p className="text-gray-400 text-sm">
-              {result}...<Link className="hover:text-amber-600" to={`/events/${id}`}>Read more</Link>
+            <h3 className="vertical-timeline-element-title font-bold font-serif md:text-xl underline decoration-amber-600 dark:text-gray-300 text-white">{data.name}</h3>
+            <p className="dark:text-gray-400 text-gray-300" style={{fontSize:'0.75rem'}}>
+              {result}...<Link className="hover:text-amber-600 hover:underline" to={`/events/${id}`}>Read more</Link>
             </p>
           </div>
           <div>
-            <img src={data?.imgPath} alt="poster" className="w-40" loading="lazy" />
+            <Link className="hover:text-amber-600" to={`/events/${id}`}>
+              <img src={data?.imgPath} alt="poster" className="w-40" loading="lazy" />
+            </Link>
           </div>
         </div>
       </VerticalTimelineElement>

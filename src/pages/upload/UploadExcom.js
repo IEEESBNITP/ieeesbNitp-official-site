@@ -35,18 +35,18 @@ function UploadExcom() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { name, position, year, branch, insta, email, linkedin } = member;
-        // @important ->> year input we have taken so that we can specify which year Ecom actually it is.
+        // @important ->> year input we have taken so that we can specify which year Excom actually it is.
         if (name !== "" && email !== "" && file !== "" && year !== "") {
-            const neeYear = parseInt(year) //converting string to int 
-            //reference to events folder 
-            const imgRef = ref(storage, `com${neeYear}${neeYear + 1}/${new Date().getTime()} - ${file.name}`)
+            const intYear = parseInt(year) //converting string to int 
+            //reference to com collections 
+            const imgRef = ref(storage, `com${intYear}${intYear + 1}/${new Date().getTime()} - ${file.name}`)
             try {
                 setLoader(true);
                 const snap = await uploadBytes(imgRef, file);
                 // url of the picture after uploading
                 const url = await getDownloadURL(ref(storage, snap.ref.fullPath))
                 setFile();
-                await addDoc(collection(db, `com${neeYear}${neeYear + 1}`), {
+                await addDoc(collection(db, `com${intYear}${intYear + 1}`), {
                     name: name,
                     position: position,
                     email: email,

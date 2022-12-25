@@ -6,11 +6,9 @@ import {
     getDocs,
     orderBy,
     query,
-    // orderBy,
-    // limit,
 } from 'firebase/firestore'
 import SimpleLoader from '../PageLoader/SimpleLoader';
-// import PageLoader from '../PageLoader/PageLoader';
+import { toast } from 'react-toastify';
 function Committee() {
     const [loading, setLoading] = useState(false);
     const [year, setYear] = useState('com20222023');
@@ -25,8 +23,7 @@ function Committee() {
             const q = query(
                 eventRef,
                 orderBy('timeStamp'), /*here you can say fcfs is working first come first 
-                 serve things are automatically orderyBy ascending order no need of mention ascending descending */
-                // limit(3)
+                 serve things are automatically orderBy ascending order no need of mention ascending descending */
             )
             // Execute query
             const querySnap = await getDocs(q)
@@ -42,7 +39,9 @@ function Committee() {
             setCommittee(event);
             setLoading(false)
         } catch (error) {
+            setLoading(false)
             console.log(error);
+            toast.error("Something went wrong try later...")
         }
     }
 
@@ -57,16 +56,16 @@ function Committee() {
     return (
         <>
             <section className="bg-white dark:bg-[#181F2A]">
-                <div className=''>
+                <div className='text-center'>
+                    <h1 className='pt-2 font-serif'>PROFESSOR-IN-CHARGE</h1>
                     <div className='hero container max-w-screen-lg mx-auto flex justify-center pt-5 px-3 md:px-0'>
-                        <img src="Prof.Incharge.jpg" className='md:w-1/4 lg:w-1/3 rounded-xl ring-1 ring-amber-600' alt="prof.Incharge" loading="lazy" />
-
+                        <img src="P.I.jpeg" className='w-1/2 lg:w-1/5 rounded-full ring-1 ring-amber-600' alt="prof.Incharge" loading="lazy" />
                     </div>
                     <div className='text-center'>
-                        <span className='my-1 text-amber-600 font-medium'>PI Dr.Subodh Srivastava </span>
+                        <span className='my-1 text-amber-500 font-medium'>Dr. Subodh Srivastava </span>
                     </div>
                     <div>
-                        <p className='text-gray-400 px-6 py-3 text-justify'>Dr.Subodh Srivastava is working as an Assistant Professor in the Department of Electronics and Communications Engineering, NIT Patna, Bihar, India. He has 06+ years of post-PhD teaching experience. He has 45+ publications in reputed journals and conferences. 06 Book chapters to his credit. He is a member of the IEEE, and is also connected with Indian Society of Technical Education through life time member. He received his PhD from IIT(BHU) in 2014. His research interests include image processing, biomedical image analysis, pattern recognition, machine learning, computer vision, and their medical applications. Currently, he is the professor In-charge of IEEE Student Branch, NIT Patna.</p>
+                        <p className='text-gray-400 px-6 py-3 text-justify text-sm'>Dr.Subodh Srivastava is working as an Assistant Professor in the Department of Electronics and Communications Engineering, NIT Patna, Bihar, India. He has 06+ years of post-PhD teaching experience. He has 45+ publications in reputed journals and conferences. 06 Book chapters to his credit. He is a member of the IEEE, and is also connected with Indian Society of Technical Education through life time member. He received his PhD from IIT(BHU) in 2014. His research interests include image processing, biomedical image analysis, pattern recognition, machine learning, computer vision, and their medical applications. Currently, he is the professor In-charge of IEEE Student Branch, NIT Patna.</p>
                     </div>
                 </div>
                 <div className='p-5'>
@@ -76,6 +75,7 @@ function Committee() {
                         <option value="com20212022">2021</option>
                         <option value="com20202021">2020</option>
                         <option value="com20192020">2019</option>
+                        <option value="com20182019">2018</option>
                     </select>
                 </div>
                 <div className="container px-6 py-10 mx-auto">
