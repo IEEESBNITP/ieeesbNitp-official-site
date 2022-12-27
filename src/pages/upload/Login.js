@@ -13,15 +13,12 @@ function Login() {
     useEffect(() => {
         if (auth && localAuth) {
             navigate('/dashboard')
-            // if (auth.currentUser.uid === localAuth.uid) {
-            // }
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     const handleLogin = (e) => {
         e.preventDefault()
         if (email !== '' && password !== '') {
-
             setLoader(true);
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
@@ -37,11 +34,12 @@ function Login() {
                     }
                 })
                 .catch((error) => {
+                    setLoader(false);
                     const errorCode = error.code;
                     console.log(errorCode);
                     const errorMessage = error.message;
                     console.log(errorMessage);
-                    setLoader(false);
+                    toast.error("invalid credentials")
                 });
         } else {
             toast.error("Provide correct Inputs")
