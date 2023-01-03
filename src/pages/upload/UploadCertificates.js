@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 function UploadCertificates() {
     const [loader, setLoader] = useState(false);
-    const [roll, setRoll] = useState('');
+    const [certificateNo, setCertificateNo] = useState('');
     const [date, setDate] = useState("");
     const [eventName, setEventName] = useState('');
     const [file, setFile] = useState();
@@ -20,7 +20,7 @@ function UploadCertificates() {
     }, [])
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if (roll !== "" && eventName !== "" && file !== "" && date !== "") {
+        if (certificateNo !== "" && eventName !== "" && file !== "" && date !== "") {
             //reference to events folder 
             const imgRef = ref(storage, `certificates/${new Date().getTime()} - ${file.name}`)
             try {
@@ -30,15 +30,14 @@ function UploadCertificates() {
                 const url = await getDownloadURL(ref(storage, snap.ref.fullPath))
                 setFile();
                 await addDoc(collection(db, 'certificates'), {
-                    roll: roll,
+                    certificateNo: certificateNo,
                     date: date,
                     event: eventName,
                     imgPath: file ? url : null,
                     forDeletePath: file ? snap.ref.fullPath : null,
-
                 });
                 setLoader(false);
-                setRoll("");
+                setCertificateNo("");
                 setEventName("");
                 toast.success("Uploaded successfully")
             } catch (error) {
@@ -63,14 +62,14 @@ function UploadCertificates() {
                             <div className="flex flex-wrap -m-2">
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
-                                        <label htmlFor="name" className="leading-7 text-sm text-gray-600">Roll Number</label>
-                                        <input type="text" id="name" name="name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={roll} onChange={e => setRoll(e.target.value)} placeholder="Roll Number" />
+                                        <label htmlFor="certificate_no" className="leading-7 text-sm text-gray-600">CertificateNo Number</label>
+                                        <input type="text" id="certificate_no" name="certificate_no" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={certificateNo} onChange={e => setCertificateNo(e.target.value)} placeholder="certificateNo Number" />
                                     </div>
                                 </div>
                                 <div className="p-2 w-1/2">
                                     <div className="relative">
-                                        <label htmlFor="email" className="leading-7 text-sm text-gray-600">Event Name</label>
-                                        <input type="text" id="email" name="email" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" />
+                                        <label htmlFor="Event_Name" className="leading-7 text-sm text-gray-600">Event Name</label>
+                                        <input type="text" id="Event_Name" name="Event_Name" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" value={eventName} onChange={e => setEventName(e.target.value)} placeholder="Event Name" />
                                     </div>
                                 </div>
                                 <div className="p-2 w-full">

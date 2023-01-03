@@ -4,14 +4,14 @@ import { db } from '../../Firebase'
 import CertificateCard from './CertificateCard';
 function DownloadCertificates() {
     const [loader, setLoader] = useState(false);
-    const [roll, setRoll] = useState('');
+    const [certificateNo, setCertificateNo] = useState('');
     const [certificate, setCertificates] = useState([]);
 
     const searchCertificate = async (e) => {
         e.preventDefault()
         setLoader(true);
         const ref = collection(db, "certificates");
-        const q = query(ref, where("roll", "==", roll));
+        const q = query(ref, where("roll", "==", certificateNo));
         const querySnapshot = await getDocs(q);
 
         const cert = []
@@ -30,15 +30,15 @@ function DownloadCertificates() {
                 <div className="flex flex-col max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 md:flex-row md:h-48">
                     <div className="md:flex md:items-center md:justify-center md:w-1/2 md:bg-gray-700 md:dark:bg-gray-900">
                         <div className="px-6 py-6 md:px-8 md:py-0">
-                            <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-600 md:text-amber-600">Event</span> Certificates</h2>
-                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate through your roll number if you ever won any event</p>
+                            <h2 className="text-lg font-bold text-gray-700 dark:text-white md:text-gray-100">Download your <span className="text-amber-600 dark:text-amber-600 md:text-amber-600"></span> Certificates</h2>
+                            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400 md:text-gray-400">Download your certificate through your certificate number</p>
                         </div>
                     </div>
 
                     <div className="flex items-center justify-center pb-6 md:py-0 md:w-1/2">
                         <form>
                             <div className="flex flex-col p-1.5 overflow-hidden border rounded-lg border-amber-500 lg:flex-row dark:focus-within:border-amber-500 focus-within:ring focus-within:ring-opacity-40 focus-within:border-amber-500 focus-within:ring-amber-500">
-                                <input className="px-6 py-2 text-gray-700 dark:text-amber-500 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="roll" placeholder="Roll Number" aria-label="Enter your Roll" value={roll} onChange={e => setRoll(e.target.value)} />
+                                <input className="px-6 py-2 text-gray-700 dark:text-amber-500 placeholder-gray-500 bg-white outline-none dark:bg-gray-800 dark:placeholder-gray-400 focus:placeholder-transparent dark:focus:placeholder-transparent" type="text" name="certificateNo" placeholder="Certificate Number" aria-label="Enter your Roll" value={certificateNo} onChange={e => setCertificateNo(e.target.value)} />
 
                                 <button type='submit' className="border shadow-xl hover:shadow-amber-500 border-amber-500 px-3 py-1 font-medium rounded-lg  text-amber-500 hover:bg-amber-500 hover:text-slate-900  text-lg" onClick={searchCertificate}>{loader ? "Searching" : "Download"}</button>
                             </div>
