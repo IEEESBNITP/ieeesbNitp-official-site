@@ -5,8 +5,8 @@ import { db, auth } from '../../Firebase';
 import SimpleLoader from '../PageLoader/SimpleLoader'
 import ImageCard from './ImageCard'
 function Gallery() {
-  const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState(currentYear)
+  // const currentYear = new Date().getFullYear();
+  const [year, setYear] = useState(2022)
   const [data, setData] = useState([]);
   const [loader, setLoading] = useState(false);
   const fetchImages = async () => {
@@ -53,7 +53,8 @@ function Gallery() {
           <div className='p-5'>
             <label htmlFor="cars" className='text-gray-400'>Year </label>
             <select name="year" id="year" className='bg-amber-600 rounded px-5 py-1 text-white' value={year} onChange={e => setYear(e.target.value)}>
-              <option value="2022">2022</option>
+              <option value="2022" selected>2022</option>
+              <option value="2023">2023</option>
               <option value="2021">2021</option>
               <option value="2020">2020</option>
               <option value="2019">2019</option>
