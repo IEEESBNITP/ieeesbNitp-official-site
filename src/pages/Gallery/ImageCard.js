@@ -5,7 +5,7 @@ import { MdDelete } from 'react-icons/md'
 import { toast } from 'react-toastify';
 import { auth, storage, db } from '../../Firebase';
 import Loader from '../PageLoader/SimpleLoader'
-function ImageCard({ data ,fetchImages}) {
+function ImageCard({ data, fetchImages }) {
     const [loader, setLoader] = useState(false);
     const localAuth = JSON.parse(localStorage.getItem('ieee-auth'));
     const deleteImage = async (url) => {
@@ -29,7 +29,7 @@ function ImageCard({ data ,fetchImages}) {
             toast.error("Something went wrong...")
         }
     }
-    if(loader){
+    if (loader) {
         return <Loader />
     }
     return (
@@ -38,7 +38,11 @@ function ImageCard({ data ,fetchImages}) {
                 {(auth?.currentUser && localAuth) ? <>
                     <button onClick={() => deleteImage(data?.url)} className="absolute top-2 right-2 bg-[#181F2A] rounded-full p-1.5 "><MdDelete className='hover:text-amber-600 text-xl' /></button>
                 </> : null}
-                <img className="" src={data?.url} alt="gallery" loading='lazy' />
+                <img className="w-full h-full" src={data?.url} alt={data?.eventName} loading='lazy' />
+                <div className='absolute bottom-2 left-2'>
+                    <h1 className='bg-[#181F2A] rounded px-1.5 text-amber-500 font-serif shadow-2xl'>{data?.eventName}</h1>
+                </div>
+
             </div>
 
 
