@@ -38,7 +38,14 @@ function EventsDetails() {
     fetchEvent();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
+  // function to detect is any hyperlink is there in string/text description 
+  const linkIfy = (text) => {
+    //eslint-disable-next-line
+    let urlRegex = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text?.replace(urlRegex, function (url) {
+      return '<a style="color:#70B5F9;text-decoration:underline" target="_blank" className="hover:underline" href="' + url + '">' + url + '</a>';
+    });
+  }
   // function for deleting the events
   const deleteEvent = async () => {
     try {
@@ -77,7 +84,7 @@ function EventsDetails() {
                 // it replace the enter key or \n  with <br/> tag.
                 return (
                   <span key={idx}>
-                    {item}
+                    {<span dangerouslySetInnerHTML={{ __html: linkIfy(item) }} />}
                     <br />
                   </span>
                 )
