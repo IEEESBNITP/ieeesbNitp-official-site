@@ -5,8 +5,8 @@ import { db, auth } from '../../Firebase';
 import SimpleLoader from '../PageLoader/SimpleLoader'
 import ImageCard from './ImageCard'
 function Gallery() {
-  // const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState(2022)
+  const currentYear = new Date().getFullYear();
+  const [year, setYear] = useState(currentYear)
   const [data, setData] = useState([]);
   const [loader, setLoading] = useState(false);
   const fetchImages = async () => {
@@ -27,9 +27,13 @@ function Gallery() {
       querySnap.forEach((doc) => {
         //running two time loops one for docs and second one for imgUrls array
         doc.data()?.imgUrls?.forEach((url) => {
-          return data.push({ url: url, eventName: doc.data()?.eventName, docId: doc.id, year: doc.data().year })
+          return data.push({ 
+            url: url, 
+            eventName: doc.data()?.eventName,
+            docId: doc.id, 
+            year: doc.data().year 
+          })
         })
-        // data.push(doc.data().imgUrls)
       })
       setData(data);
       setLoading(false)
@@ -52,8 +56,8 @@ function Gallery() {
         <div className='p-5'>
           <label htmlFor="cars" className='text-gray-400'>Year </label>
           <select name="year" id="year" className='bg-amber-600 rounded px-5 py-1 text-white' value={year} onChange={e => setYear(e.target.value)}>
-            <option value="2022" select="true">2022</option>
-            <option value="2023">2023</option>
+            <option value="2023" selected>2023</option>
+            <option value="2022">2022</option>
             <option value="2021">2021</option>
             <option value="2020">2020</option>
             <option value="2019">2019</option>
