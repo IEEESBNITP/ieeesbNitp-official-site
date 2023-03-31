@@ -9,6 +9,7 @@ function Gallery() {
   const [year, setYear] = useState(currentYear)
   const [data, setData] = useState([]);
   const [loader, setLoading] = useState(false);
+  const [blur, setBlur] = useState(false)
   const fetchImages = async () => {
     try {
       // Get reference
@@ -71,7 +72,7 @@ function Gallery() {
       </div>
       <div className="p-2.5 md:p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         {data?.map((item, id) => {
-          return <ImageCard key={id} data={item} fetchImages={fetchImages} />
+          return <ImageCard key={id} data={item} fetchImages={fetchImages} setBlur={setBlur} blur={blur} />
         })}
       </div>
     </>
