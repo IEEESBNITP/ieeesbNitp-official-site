@@ -14,7 +14,7 @@ function DashBoard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleLogout = () => {
-    const yes = window.confirm("Are You To Sure Logout?")
+    const yes = window.confirm("Confirm do you want to logout?")
     if (yes) {
       if (auth.currentUser && localAuth) {
         localStorage.removeItem('ieee-auth')
