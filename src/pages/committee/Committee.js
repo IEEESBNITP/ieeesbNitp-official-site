@@ -11,7 +11,7 @@ import SimpleLoader from '../PageLoader/SimpleLoader';
 import { toast } from 'react-toastify';
 function Committee() {
     const [loading, setLoading] = useState(false);
-    const [year, setYear] = useState('com20222023');
+    const [year, setYear] = useState('com20232024');
     const [committee, setCommittee] = useState([]);
     const fetchCommittee = async () => {
         try {
@@ -71,6 +71,7 @@ function Committee() {
                 <div className='p-5'>
                     <label htmlFor="cars" className='text-gray-400'>Year </label>
                     <select name="year" id="year" className='bg-amber-600 rounded px-5 py-1 text-white' value={year} onChange={e => setYear(e.target.value)}>
+                        <option value="com20232024">2023</option>
                         <option value="com20222023">2022</option>
                         <option value="com20212022">2021</option>
                         <option value="com20202021">2020</option>
@@ -90,6 +91,16 @@ function Committee() {
                         })}
                     </div>
                 </div>
+                {/* <div className="container px-6 py-10 mx-auto">
+                    <h1 className="text-3xl font-semibold text-center text-gray-800 capitalize lg:text-4xl dark:text-white">Our Executive Mentors</h1>
+
+                    <p className="max-w-2xl mx-auto my-6 text-center text-gray-500 dark:text-gray-300">
+                        Teams are incredible things. No task is too great, no accomplishment too grand, no dream too far-fetched for a team. It takes teamwork to make the dream work.
+                    </p>
+                    <div className="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 xl:grid-cols-4">
+                        
+                    </div>
+                </div> */}
             </section>
         </>
     )
