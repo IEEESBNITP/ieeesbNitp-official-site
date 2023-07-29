@@ -43,8 +43,11 @@ function Footer() {
                                 <li className="mb-4">
                                     <Link to="/contact" className="">Contact Us</Link>
                                 </li>
-                                <li>
+                                <li className='mb-4'>
                                     <a href="/" className="hover:underline">Projects</a>
+                                </li>
+                                <li>
+                                    <a href="https://ieeesbnitp.netlify.app/#/" >Old Website</a>
                                 </li>
                             </ul>
                         </div>
